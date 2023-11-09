@@ -5,7 +5,7 @@ import { API_URL } from 'src/environment/environment';
 import { IJugador, IJugadorPage } from '../model/model.interfaces';
 
 @Injectable()
-export class ThreadAjaxService {
+export class JugadorAjaxService {
 
     sUrl: string = API_URL + "/jugador";
 

@@ -6,7 +6,7 @@ import { API_URL } from 'src/environment/environment';
 import { IMiembroCuerpoTecnico, IMiembroCuerpoTecnicoPage } from '../model/model.interfaces';
 
 @Injectable()
-export class ThreadAjaxService {
+export class MiembroCuerpoTecnicoAjaxService {
 
     sUrl: string = API_URL + "/miembroCuerpoTecnico";
 

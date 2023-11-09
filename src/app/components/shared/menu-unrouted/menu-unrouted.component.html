@@ -1,0 +1,26 @@
+<nav p-menubar class="bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Equipo Futbol</a>
+      <button pButton type="button" icon="pi pi-bars" pRipple class="navbar-toggler" pToggleButton
+        aria-label="Toggle navigation"></button>
+      <div class="collapse navbar-collapse" id="navbarText">
+  
+        <p-menubar [model]="menuItems"></p-menubar>
+  
+        <span class="navbar-text mx-1" *ngIf="strEquipoName">
+          Logged as {{ strEquipoName }}
+        </span>
+        <span class="navbar-text mx-1" *ngIf="!strEquipoName">
+          Not logged in
+        </span>
+        <span class="navbar-text mx-1">
+          <a class="nav-link" routerLink="/login" href="#" *ngIf="!strEquipoName">Login</a>
+        </span>
+        <span class="navbar-text mx-1">
+          <a class="nav-link" routerLink="/logout" href="#" *ngIf="strEquipoName">Logout</a>
+        </span>
+  
+      </div>
+    </div>
+  </nav>
+  

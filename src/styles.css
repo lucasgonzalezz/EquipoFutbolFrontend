@@ -1,1 +1,18 @@
-/* You can add global styles to this file, and also import other style files */
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+
+@import "primeng/resources/primeng.css";
+
+@import "bootstrap/dist/css/bootstrap.min.css";
+
+@import "primeicons/primeicons.css";
+
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+@import 'primeng/resources/primeng.min.css';
+
+@import 'primeicons/primeicons.css';
+
+html, body { height: 100%; width: 100%;}
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+h1, h2, h3 { font-weight: 500 !important; }
+table tr td a {text-decoration: none;font-size: larger;} 

@@ -5,7 +5,7 @@ import { API_URL } from 'src/environment/environment';
 import { IEquipo, IEquipoPage } from '../model/model.interfaces';
 
 @Injectable()
-export class UserAjaxService {
+export class EquipoAjaxService {
 
     sUrl: string = API_URL + "/equipo";
 
