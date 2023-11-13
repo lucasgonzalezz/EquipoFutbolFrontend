@@ -5,12 +5,9 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './home-routed.component.html',
   styleUrls: ['./home-routed.component.css']
 })
-
 export class HomeRoutedComponent implements OnInit {
 
-  constructor(
-
-  ) { }
+  constructor() { }
 
   ngOnInit() {
   }
