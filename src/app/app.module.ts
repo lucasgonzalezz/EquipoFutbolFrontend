@@ -43,7 +43,6 @@ import { AdminEquipoPlistRoutedComponent } from './components/equipo/admin-equip
 import { AdminEquipoFormUnroutedComponent } from './components/equipo/admin-equipo-form-unrouted/admin-equipo-form-unrouted.component';
 import { AdminEquipoPlistUnroutedComponent } from './components/equipo/admin-equipo-plist-unrouted/admin-equipo-plist-unrouted.component';
 import { AdminEquipoDetailUnroutedComponent } from './components/equipo/admin-equipo-detail-unrouted/admin-equipo-detail-unrouted.component';
-import { UserEquipoFeaturedUnroutedComponent } from './components/equipo/user-equipo-featured-unrouted/user-equipo-featured-unrouted.component';
 import { AdminEquipoSelectionUnroutedComponent } from './components/equipo/admin-equipo-selection-unrouted/admin-equipo-selection-unrouted.component';
 //-Jugador-
 import { AdminJugadorNewRoutedComponent } from './components/jugador/admin-jugador-new-routed/admin-jugador-new-routed.component';
@@ -68,6 +67,8 @@ import { AdminMiembroCuerpoTecnicoDetailUnroutedComponent } from './components/m
 import { UserMiembroCuerpoTecnicoFeaturedUnroutedComponent } from './components/miembroCuerpoTecnico/user-miembroCuerpoTecnico-featured-unrouted/user-miembroCuerpoTecnico-featured-unrouted.component';
 import { AdminMiembroCuerpoTecnicoSelectionUnroutedComponent } from './components/miembroCuerpoTecnico/admin-miembroCuerpoTecnico-selection-unrouted/admin-miembroCuerpoTecnico-selection-unrouted.component';
 
+import { MenubarModule } from 'primeng/menubar';
+
 @NgModule({
   declarations: [
     //-General-
@@ -87,7 +88,6 @@ import { AdminMiembroCuerpoTecnicoSelectionUnroutedComponent } from './component
     AdminEquipoFormUnroutedComponent,
     AdminEquipoPlistUnroutedComponent,
     AdminEquipoDetailUnroutedComponent,
-    UserEquipoFeaturedUnroutedComponent,
     AdminEquipoSelectionUnroutedComponent,
     //-Jugador-
     AdminJugadorNewRoutedComponent,
@@ -113,6 +113,7 @@ import { AdminMiembroCuerpoTecnicoSelectionUnroutedComponent } from './component
     AdminMiembroCuerpoTecnicoSelectionUnroutedComponent,
   ],
   imports: [
+    MenubarModule,
     //--
     FormsModule,
     BrowserModule,

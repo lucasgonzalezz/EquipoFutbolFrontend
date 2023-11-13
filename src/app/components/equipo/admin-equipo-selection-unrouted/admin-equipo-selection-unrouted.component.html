@@ -1,3 +1,57 @@
-<p>
-  admin-equipo-selection-unrouted works!
-</p>
+<div *ngIf="status!=null">
+  <div class="d-flex justify-content-center my-3">
+    <div class="alert alert-danger" role="alert">
+      {{status!.error.message}} - {{status!.message}}
+    </div>
+  </div>
+</div>
+
+<div *ngIf="status==null">
+  <div class="d-flex justify-content-end mb-3">
+    <h6>Showing {{oPage?.numberOfElements}} of total {{oPage?.totalElements}} users.</h6>
+  </div>
+  <div class="flex justify-content-center mb-3">
+    <p-paginator (onPageChange)="onPageChang($event)" [first]="oPaginatorState.first!" [rows]="oPaginatorState.rows!"
+      [totalRecords]="oPage?.totalElements || 0" [rowsPerPageOptions]="[10, 20, 30]"></p-paginator>
+  </div>
+
+
+  <div class="mb-5 ">
+    <table class="table table-bordered table-striped table-hover table-sm">
+      <thead>
+        <tr>
+          <th (click)="doOrder('id')">ID</th>
+          <th (click)="doOrder('nombre')">nombre</th>
+          <th (click)="doOrder('ciudad')">ciudad</th>
+          <th (click)="doOrder('ano_fundacion')">ano_fundacion</th>
+          <th (click)="doOrder('estadio')">estadio</th>
+          <th (click)="doOrder('liga')">liga</th>
+          <th (click)="doOrder('username')">Username</th>
+          <th (click)="doOrder('role')">Role</th>
+          <th>Tools</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let e of oPage?.content" class="align-middle">
+          <td class="text-end"><strong>{{e.id}}</strong></td>
+          <td>{{e.nombre}}</td>
+          <td>{{e.ciudad}}</td>
+          <td>{{e.ano_fundacion}}</td>
+          <td>{{e.estadio}}</td>
+          <td>{{e.liga}}</td>
+          <td>{{e.username}}</td>
+          <td class="text-center">
+            <span *ngIf="e.role==true">Admin</span>
+            <span *ngIf="e.role==false">User</span>
+          </td>
+          <td class="text-center">
+            <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+              <button class="btn btn-primary" (click)="onSelectEquipo(e)"><i
+                  class="pi pi-plus-circle"></i></button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

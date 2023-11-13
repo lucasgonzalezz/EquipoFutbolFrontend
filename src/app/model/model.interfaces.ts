@@ -41,7 +41,7 @@ export interface IEntity {
 export interface IEquipo extends IEntity {
     nombre: string,
     ciudad: string,
-    año_fundacion: Date,
+    ano_fundacion: Date,
     estadio: string,
     liga: string,
     username: string,
