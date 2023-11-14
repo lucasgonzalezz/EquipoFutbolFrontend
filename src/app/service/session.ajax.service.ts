@@ -43,8 +43,17 @@ export class SessionAjaxService {
     }
 
     isSessionActive(): Boolean {
-        //pte comprobar que el token no está caducado
-        return this.getToken() != null;
+        let strToken: string | null = localStorage.getItem('token');
+        if (strToken) {
+            let oDecodedToken: IToken = this.parseJwt(strToken);
+            if (Date.now() >= oDecodedToken.exp * 1000) {
+                return false;
+            } else {
+                return true;
+            }
+        } else {
+            return false;
+        }
     }
 
     getUsername(): string {
@@ -67,6 +76,5 @@ export class SessionAjaxService {
     emit(event: SessionEvent) {
         this.subjectSession.next(event);
     }
-
 
 }

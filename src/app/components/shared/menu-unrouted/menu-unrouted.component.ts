@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 import { IEquipo, SessionEvent } from 'src/app/model/model.interfaces';
+import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { EquipoAjaxService } from 'src/app/service/equipo.ajax.service';
 import { SessionAjaxService } from 'src/app/service/session.ajax.service';
+import { AdminEquipoDetailUnroutedComponent } from '../../equipo/admin-equipo-detail-unrouted/admin-equipo-detail-unrouted.component';
 
 @Component({
   selector: 'app-menu-unrouted',
@@ -13,11 +16,21 @@ export class MenuUnroutedComponent implements OnInit {
 
   strEquipoName: string = "";
   oSessionEquipo: IEquipo | null = null;
+  strUrl: string = "";
 
   constructor(
     private oSessionService: SessionAjaxService,
     private oEquipoAjaxService: EquipoAjaxService,
+    public oDialogService: DialogService,
+    private oRouter: Router
   ) {
+
+    this.oRouter.events.subscribe((ev) => {
+      if (ev instanceof NavigationEnd) {
+        this.strUrl = ev.url;
+      }
+    })
+
     this.strEquipoName = oSessionService.getUsername();
     this.oEquipoAjaxService.getByUsername(this.oSessionService.getUsername()).subscribe({
       next: (oEquipo: IEquipo) => {
@@ -49,6 +62,25 @@ export class MenuUnroutedComponent implements OnInit {
       }
     });
 
+    /*
+    doSessionUserView($event: Event) {
+      if (this.oSessionEquipo) {
+        let ref: DynamicDialogRef | undefined;
+        ref = this.oDialogService.open(AdminEquipoDetailUnroutedComponent, {
+          data: {
+            id: this.oSessionEquipo.id
+          },
+          header: 'View of user',
+          width: '50%',
+          contentStyle: { overflow: 'auto' },
+          baseZIndex: 10000,
+          maximizable: false
+        });
+      }
+      return false;
+      //$event.preventDefault
+    }
+    */
 
   }
 }

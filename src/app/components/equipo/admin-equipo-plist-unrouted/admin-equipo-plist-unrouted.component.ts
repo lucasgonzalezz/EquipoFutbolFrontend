@@ -78,7 +78,7 @@ export class AdminEquipoPlistUnroutedComponent implements OnInit {
       data: {
         id: e.id
       },
-      header: 'View of user',
+      header: 'View of equipo',
       width: '50%',
       contentStyle: { overflow: 'auto' },
       baseZIndex: 10000,

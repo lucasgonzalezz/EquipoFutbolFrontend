@@ -6,12 +6,6 @@
 
 @import "primeicons/primeicons.css";
 
-@import '~@angular/material/prebuilt-themes/indigo-pink.css';
-
-@import 'primeng/resources/primeng.min.css';
-
-@import 'primeicons/primeicons.css';
-
 html, body { height: 100%; width: 100%;}
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 h1, h2, h3 { font-weight: 500 !important; }

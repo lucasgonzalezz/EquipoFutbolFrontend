@@ -68,6 +68,9 @@ import { UserMiembroCuerpoTecnicoFeaturedUnroutedComponent } from './components/
 import { AdminMiembroCuerpoTecnicoSelectionUnroutedComponent } from './components/miembroCuerpoTecnico/admin-miembroCuerpoTecnico-selection-unrouted/admin-miembroCuerpoTecnico-selection-unrouted.component';
 
 import { MenubarModule } from 'primeng/menubar';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { CalendarModule } from 'primeng/calendar';
+import { ConfirmPopupModule } from 'primeng/confirmpopup';
 
 @NgModule({
   declarations: [
@@ -114,6 +117,10 @@ import { MenubarModule } from 'primeng/menubar';
   ],
   imports: [
     MenubarModule,
+    MatDatepickerModule,
+    CalendarModule,
+    ConfirmPopupModule,
+
     //--
     FormsModule,
     BrowserModule,

@@ -1,6 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ConfirmationService } from 'primeng/api';
 import { Subject } from 'rxjs';
 import { EquipoAjaxService } from 'src/app/service/equipo.ajax.service';
 @Component({
@@ -14,7 +15,8 @@ export class AdminEquipoPlistRoutedComponent implements OnInit {
   bLoading: boolean = false;
 
   constructor(
-    private oEquopoAjaxService: EquipoAjaxService,
+    private oEquipoAjaxService: EquipoAjaxService,
+    private oConfirmationService: ConfirmationService,
     private oMatSnackBar: MatSnackBar
   ) { }
 
@@ -22,7 +24,7 @@ export class AdminEquipoPlistRoutedComponent implements OnInit {
 
   doGenerateRandom(amount: number) {
     this.bLoading = true;
-    this.oEquopoAjaxService.generateRandom(amount).subscribe({
+    this.oEquipoAjaxService.generateRandom(amount).subscribe({
       next: (oResponse: number) => {
         this.oMatSnackBar.open("Now there are " + oResponse + " equipos", '', { duration: 2000 });
         this.bLoading = false;
@@ -34,18 +36,28 @@ export class AdminEquipoPlistRoutedComponent implements OnInit {
     })
   }
 
-  doEmpty() {
-    this.oEquopoAjaxService.empty().subscribe({
-      next: (oResponse: number) => {
-        this.oMatSnackBar.open("Now there are " + oResponse + " equipos", '', { duration: 2000 });
-        this.bLoading = false;
-        this.forceReload.next(true);
+  doEmpty($event: Event) {
+    this.oConfirmationService.confirm({
+      target: $event.target as EventTarget, 
+      message: 'Are you sure that you want to remove all the users?',
+      icon: 'pi pi-exclamation-triangle',
+      accept: () => {
+        this.oEquipoAjaxService.empty().subscribe({
+          next: (oResponse: number) => {
+            this.oMatSnackBar.open("Now there are " + oResponse + " users", '', { duration: 2000 });
+            this.bLoading = false;
+            this.forceReload.next(true);
+          },
+          error: (oError: HttpErrorResponse) => {
+            this.oMatSnackBar.open("Error emptying users: " + oError.message, '', { duration: 2000 });
+            this.bLoading = false;
+          },
+        })
       },
-      error: (oError: HttpErrorResponse) => {
-        this.oMatSnackBar.open("Error emptying equipos: " + oError.message, '', { duration: 2000 });
-        this.bLoading = false;
-      },
-    })
+      reject: () => {
+        this.oMatSnackBar.open("Empty Cancelled!", '', { duration: 2000 });
+      }
+    });
   }
 
 }

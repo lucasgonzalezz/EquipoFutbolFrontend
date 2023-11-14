@@ -21,13 +21,15 @@
       <thead>
         <tr>
           <th (click)="doOrder('id')">ID</th>
-          <th (click)="doOrder('nombre')">nombre</th>
-          <th (click)="doOrder('ciudad')">ciudad</th>
-          <th (click)="doOrder('ano_fundacion')">ano_fundacion</th>
-          <th (click)="doOrder('estadio')">estadio</th>
-          <th (click)="doOrder('liga')">liga</th>
+          <th (click)="doOrder('nombre')">Nombre</th>
+          <th (click)="doOrder('ciudad')">Ciudad</th>
+          <th (click)="doOrder('ano_fundacion')">Año Fundación</th>
+          <th (click)="doOrder('estadio')">Estadio</th>
+          <th (click)="doOrder('liga')">Liga</th>
           <th (click)="doOrder('username')">Username</th>
           <th (click)="doOrder('role')">Role</th>
+          <th>Jugadores</th>
+          <th>Miembros del Cuerpo Tecnico</th>
           <th>Tools</th>
         </tr>
       </thead>
@@ -43,6 +45,12 @@
           <td class="text-center">
             <span *ngIf="e.role==true">Admin</span>
             <span *ngIf="e.role==false">User</span>
+          </td>
+          <td class="text-center">
+            {{e.jugadores}}
+          </td>
+          <td class="text-center">
+            {{e.miembrosCuerpoTecnico}}
           </td>
           <td class="text-center">
             <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">

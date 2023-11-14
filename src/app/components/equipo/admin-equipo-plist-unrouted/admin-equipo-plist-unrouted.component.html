@@ -9,7 +9,7 @@
 <div *ngIf="status==null">
   <div class="d-flex justify-content-between mb-3">
     <h3>No active filter</h3>
-    <h3>Showing {{oPage?.numberOfElements}} of total {{oPage?.totalElements}} users.</h3>
+    <h3>Showing {{oPage?.numberOfElements}} of total {{oPage?.totalElements}} equipos.</h3>
   </div>
   <div class="flex justify-content-center mb-3">
     <p-paginator (onPageChange)="onPageChang($event)" [first]="oPaginatorState.first!" [rows]="oPaginatorState.rows!"
@@ -22,14 +22,15 @@
       <thead>
         <tr>
           <th (click)="doOrder('id')">ID</th>
-          <th (click)="doOrder('name')">Name</th>
-          <th (click)="doOrder('surname')">Surname</th>
-          <th (click)="doOrder('lastname')">Last name</th>
-          <th (click)="doOrder('email')">Email</th>
+          <th (click)="doOrder('nombre')">Nombre</th>
+          <th (click)="doOrder('ciudad')">Ciudad</th>
+          <th (click)="doOrder('ano_fundacion')">Año Fundación</th>
+          <th (click)="doOrder('estadio')">Estadio</th>
+          <th (click)="doOrder('liga')">Liga</th>
           <th (click)="doOrder('username')">Username</th>
           <th (click)="doOrder('role')">Role</th>
-          <th>Threads</th>
-          <th>Replies</th>
+          <th>Jugadores</th>
+          <th>Miembros del Cuerpo Tecnico</th>
           <th>Tools</th>
         </tr>
       </thead>
@@ -47,12 +48,22 @@
             <span *ngIf="e.role==false">User</span>
           </td>
           <td class="text-center">
+            <a [routerLink]="['/admin','jugador','plist','byuser',e.id]" *ngIf="e.jugadores>0">{{e.jugadores}}</a>
+            <span *ngIf="e.jugadores==0">0</span>
+          </td>
+          <td class="text-center">
+            <a [routerLink]="['/admin','miembroCuerpoTecnico','plist','byuser',e.id]" *ngIf="e.miembrosCuerpoTecnico>0">{{e.miembrosCuerpoTecnico}}</a>
+            <span *ngIf="e.miembrosCuerpoTecnico==0">0</span>
+          </td>
+          <td class="text-center">
             <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
               <button class="btn btn-primary" [routerLink]="['/admin','equipo','view',e.id]"><i
                   class="pi pi-eye"></i></button>
               <button class="btn btn-primary" (click)="doView(e)"><i class="pi pi-arrow-circle-up"></i></button>
               <button class="btn btn-warning" [routerLink]="['/admin','equipo','edit',e.id]"><i
                   class="pi pi-pencil"></i></button>
+              <button *ngIf="e.jugadores==0 && e.miembrosCuerpoTecnico==0" class="btn btn-danger" (click)="doRemove(e)"><i
+                  class="pi pi-trash"></i></button>
             </div>
           </td>
         </tr>
@@ -63,7 +74,7 @@
 
 <p-confirmDialog #cd [style]="{ width: '30vw' }">
   <ng-template pTemplate="header">
-    <h5><i class="pi pi-exclamation-triangle p-mr-3" style="font-size: 2rem"></i> User removal</h5>
+    <h5><i class="pi pi-exclamation-triangle p-mr-3" style="font-size: 2rem"></i> Equipo removal</h5>
   </ng-template>
   <ng-template pTemplate="message">
     <div class="container d-flex align-items-center justify-content-center">

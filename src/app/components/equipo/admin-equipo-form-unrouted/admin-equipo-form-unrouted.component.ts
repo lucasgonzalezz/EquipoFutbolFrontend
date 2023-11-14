@@ -5,6 +5,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { IEquipo, formOperation } from 'src/app/model/model.interfaces';
 import { EquipoAjaxService } from 'src/app/service/equipo.ajax.service';
+import { CALENDAR_ES } from 'src/environment/environment';
 
 @Component({
   selector: 'app-admin-equipo-form-unrouted',
@@ -15,6 +16,8 @@ export class AdminEquipoFormUnroutedComponent implements OnInit {
 
   @Input() id: number = 1;
   @Input() operation: formOperation = 'NEW'; //new or edit
+
+  es = CALENDAR_ES;
 
   equipoForm!: FormGroup;
   oEquipo: IEquipo = {} as IEquipo;
@@ -31,9 +34,10 @@ export class AdminEquipoFormUnroutedComponent implements OnInit {
 
   initializeForm(oEquipo: IEquipo) {
     this.equipoForm = this.oFormBuilder.group({
+      id: [oEquipo.id],
       nombre: [oEquipo.nombre, [Validators.required, Validators.minLength(3), Validators.maxLength(255)]],
       ciudad: [oEquipo.ciudad, [Validators.required, Validators.minLength(3), Validators.maxLength(255)]],
-      ano_fundacion: [oEquipo.ano_fundacion, Validators.required],
+      ano_fundacion: [new Date(oEquipo.ano_fundacion), [Validators.required]],
       estadio: [oEquipo.estadio, [Validators.required, Validators.maxLength(255)]],
       liga: [oEquipo.liga, Validators.maxLength(255)],
       username: [oEquipo.username, [Validators.required, Validators.minLength(6), Validators.maxLength(15), Validators.pattern('^[a-zA-Z0-9]+$')]],

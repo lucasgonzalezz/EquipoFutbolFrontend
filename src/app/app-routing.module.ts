@@ -27,10 +27,10 @@ const routes: Routes = [
   { path: 'login', component: LoginRoutedComponent },
   { path: 'logout', component: LogoutRoutedComponent },
   //-Equipo-
-  { path: 'admin/equipo/new', component: AdminEquipoEditRoutedComponent },
-  { path: 'admin/equipo/plist', component: AdminEquipoViewRoutedComponent },
-  { path: 'admin/equipo/edit/:id', component: AdminEquipoNewRoutedComponent },
-  { path: 'admin/equipo/view/:id', component: AdminEquipoPlistRoutedComponent },
+  { path: 'admin/equipo/new', component: AdminEquipoNewRoutedComponent },
+  { path: 'admin/equipo/plist', component: AdminEquipoPlistRoutedComponent },
+  { path: 'admin/equipo/edit/:id', component: AdminEquipoEditRoutedComponent },
+  { path: 'admin/equipo/view/:id', component: AdminEquipoViewRoutedComponent },
   //-Jugador-
   { path: 'admin/jugador/new', component: AdminJugadorNewRoutedComponent },
   { path: 'admin/jugador/plist', component: AdminJugadorPlistRoutedComponent },

@@ -37,6 +37,7 @@
             <mat-error *ngIf="hasError('ciudad', 'maxlength')">Límite excedido</mat-error>
           </mat-form-field>
         </div>
+
         <div class="form-group">
           <mat-form-field [style.width.px]=350>
             <mat-label>Año de Fundación:</mat-label>
@@ -45,6 +46,18 @@
             <mat-error *ngIf="hasError('ano_fundacion', 'required')">Año de Fundación es obligatorio</mat-error>
           </mat-form-field>
         </div>
+
+        <div class="row mb-3">
+          <label for="fundacion" class="col-sm-2 col-form-label"> Año fundación:</label>
+          <div class="col-sm-10">
+            <p-calendar formControlName="creation" [locale]="es" dateFormat="dd/mm/yy" inputId="spanish" [showIcon]="true"
+              [showTime]="true" [showSeconds]="true"></p-calendar>
+            <div *ngIf="hasError('creation', 'required')" class="text-danger"> You must
+              set a valid date
+            </div>
+          </div>
+        </div>
+
         <div class="form-group">
           <mat-form-field [style.width.px]=350>
             <mat-label>Estadio:</mat-label>
