@@ -23,9 +23,11 @@ export class AdminEquipoPlistRoutedComponent implements OnInit {
   ngOnInit() { }
 
   doGenerateRandom(amount: number) {
+    console.log(amount);
     this.bLoading = true;
     this.oEquipoAjaxService.generateRandom(amount).subscribe({
       next: (oResponse: number) => {
+        console.log(amount);
         this.oMatSnackBar.open("Now there are " + oResponse + " equipos", '', { duration: 2000 });
         this.bLoading = false;
       },
