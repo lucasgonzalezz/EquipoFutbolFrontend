@@ -6,7 +6,4 @@
 
 @import "primeicons/primeicons.css";
 
-html, body { height: 100%; width: 100%;}
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-h1, h2, h3 { font-weight: 500 !important; }
-table tr td a {text-decoration: none;font-size: larger;} 
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Nunito:ital,wght@0,200;0,600;1,300&display=swap');/* Estilos para centrar el formulario */

@@ -13,6 +13,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ButtonModule } from 'primeng/button';
+import { InputTextModule } from 'primeng/inputtext';
 //-Prime NG-
 import { TableModule } from 'primeng/table';
 import { PaginatorModule } from 'primeng/paginator';
@@ -120,7 +122,8 @@ import { ConfirmPopupModule } from 'primeng/confirmpopup';
     MatDatepickerModule,
     CalendarModule,
     ConfirmPopupModule,
-
+    ButtonModule,
+    InputTextModule,
     //--
     FormsModule,
     BrowserModule,

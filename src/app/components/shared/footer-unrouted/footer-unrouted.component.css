@@ -1,0 +1,19 @@
+body {
+            margin: 0; /* Eliminar el margen predeterminado del cuerpo */
+            padding: 0; /* Eliminar el relleno predeterminado del cuerpo */
+            background-color: #f0f0f0; /* Color de fondo de la página */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Establecer la altura del cuerpo al 100% de la ventana */
+        }
+
+        .container {
+            padding: 20px; /* Añadir un espacio más pequeño alrededor del contenido */
+            width: 100%; /* Hacer que el contenedor ocupe todo el ancho disponible */
+        }
+
+        h4 {
+            text-align: center; /* Centrar el texto */
+            margin: 0; /* Eliminar el margen superior e inferior del h4 */
+        }
