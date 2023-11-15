@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { IEquipo, formOperation } from 'src/app/model/model.interfaces';
 import { EquipoAjaxService } from 'src/app/service/equipo.ajax.service';
 
+
 @Component({
   selector: 'app-admin-equipo-form-unrouted',
   templateUrl: './admin-equipo-form-unrouted.component.html',
@@ -16,7 +17,7 @@ export class AdminEquipoFormUnroutedComponent implements OnInit {
   @Input() id: number = 1;
   @Input() operation: formOperation = 'NEW'; //new or edit
 
-  userForm!: FormGroup;
+  equipoForm!: FormGroup;
   oUser: IEquipo = {} as IEquipo;
   status: HttpErrorResponse | null = null;
 
@@ -29,15 +30,15 @@ export class AdminEquipoFormUnroutedComponent implements OnInit {
     this.initializeForm(this.oUser);
   }
 
-  initializeForm(oUser: IEquipo) {
-    this.userForm = this.oFormBuilder.group({
-      id: [oUser.id],
-      name: [oUser.nombre, [Validators.required, Validators.minLength(3), Validators.maxLength(255)]],
-      surname: [oUser.ciudad, [Validators.required, Validators.minLength(3), Validators.maxLength(255)]],
-      lastname: [oUser.liga, Validators.maxLength(255)],
-      email: [oUser.estadio, [Validators.required, Validators.email]],
-      username: [oUser.username, [Validators.required, Validators.minLength(6), Validators.maxLength(15), Validators.pattern('^[a-zA-Z0-9]+$')]],
-      role: [oUser.role, Validators.required]
+  initializeForm(oEquipo: IEquipo) {
+    this.equipoForm = this.oFormBuilder.group({
+      id: [oEquipo.id],
+      nombre: [oEquipo.nombre, [Validators.required, Validators.minLength(3), Validators.maxLength(255)]],
+      ciudad: [oEquipo.ciudad, [Validators.required, Validators.minLength(3), Validators.maxLength(255)]],
+      estadio: [oEquipo.estadio, Validators.maxLength(255)],
+      liga: [oEquipo.liga, Validators.maxLength(255)],
+      username: [oEquipo.username, [Validators.required, Validators.minLength(6), Validators.maxLength(15), Validators.pattern('^[a-zA-Z0-9]+$')]],  
+      role: [oEquipo.role, Validators.required]
     });
   }
 
@@ -59,13 +60,13 @@ export class AdminEquipoFormUnroutedComponent implements OnInit {
   }
 
   public hasError = (controlName: string, errorName: string) => {
-    return this.userForm.controls[controlName].hasError(errorName);
+    return this.equipoForm.controls[controlName].hasError(errorName);
   }
 
   onSubmit() {
-    if (this.userForm.valid) {
+    if (this.equipoForm.valid) {
       if (this.operation == 'NEW') {
-        this.oEquipoAjaxService.newOne(this.userForm.value).subscribe({
+        this.oEquipoAjaxService.newOne(this.equipoForm.value).subscribe({
           next: (data: IEquipo) => {
             this.oUser = data;
             this.initializeForm(this.oUser);
@@ -80,7 +81,7 @@ export class AdminEquipoFormUnroutedComponent implements OnInit {
         })
 
       } else {
-        this.oEquipoAjaxService.updateOne(this.userForm.value).subscribe({
+        this.oEquipoAjaxService.updateOne(this.equipoForm.value).subscribe({
           next: (data: IEquipo) => {
             this.oUser = data;
             this.initializeForm(this.oUser);

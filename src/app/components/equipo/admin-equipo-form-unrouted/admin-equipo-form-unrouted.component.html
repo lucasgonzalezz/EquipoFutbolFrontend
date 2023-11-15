@@ -9,7 +9,7 @@
 <div *ngIf="status==null">
   <div class="col-12">
     <div class="d-flex justify-content-center my-3">
-      <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+      <form [formGroup]="equipoForm" (ngSubmit)="onSubmit()">
         <div class="form-group">
           <mat-form-field *ngIf="operation=='EDIT'">
             <mat-label>ID:</mat-label>
@@ -19,37 +19,38 @@
         </div>
         <div class="form-group">
           <mat-form-field [style.width.px]=350>
-            <mat-label>Name:</mat-label>
-            <input matInput formControlName="name" placeholder="Name" required>
+            <mat-label>Nombre:</mat-label>
+            <input matInput formControlName="nombre" placeholder="Nombre" required>
             <mat-hint align="end">(3 to 255 characters long)</mat-hint>
-            <mat-error *ngIf="hasError('name', 'required')">Name is required</mat-error>
-            <mat-error *ngIf="hasError('name', 'minlength')">More length is required</mat-error>
-            <mat-error *ngIf="hasError('name', 'maxlength')">Limit exceed</mat-error>
+            <mat-error *ngIf="hasError('nombre', 'required')">Nombre is required</mat-error>
+            <mat-error *ngIf="hasError('nombre', 'minlength')">More length is required</mat-error>
+            <mat-error *ngIf="hasError('nombre', 'maxlength')">Limit exceed</mat-error>
           </mat-form-field>
         </div>
         <div class="form-group">
           <mat-form-field [style.width.px]=350>
-            <mat-label>Surname:</mat-label>
-            <input matInput formControlName="surname" placeholder="Surname" required>
+            <mat-label>Ciudad:</mat-label>
+            <input matInput formControlName="ciudad" placeholder="Ciudad" required>
             <mat-hint align="end">(3 to 255 characters long)</mat-hint>
-            <mat-error *ngIf="hasError('surname', 'required')">Surname is required</mat-error>
-            <mat-error *ngIf="hasError('surname', 'minlength')">More length is required</mat-error>
-            <mat-error *ngIf="hasError('surname', 'maxlength')">Limit exceed</mat-error>
+            <mat-error *ngIf="hasError('ciudad', 'required')">Ciudad is required</mat-error>
+            <mat-error *ngIf="hasError('ciudad', 'minlength')">More length is required</mat-error>
+            <mat-error *ngIf="hasError('ciudad', 'maxlength')">Limit exceed</mat-error>
           </mat-form-field>
         </div>
         <div class="form-group">
           <mat-form-field [style.width.px]=350>
-            <mat-label>Lastname:</mat-label>
-            <input matInput formControlName="lastname" placeholder="Lastname">
+            <mat-label>Estadio:</mat-label>
+            <input matInput formControlName="estadio" placeholder="Estadio">
             <mat-hint align="end">(max. 255 characters long)</mat-hint>
-            <mat-error *ngIf="hasError('lastname', 'maxlength')">Limit exceed</mat-error>
+            <mat-error *ngIf="hasError('estadio', 'maxlength')">Limit exceed</mat-error>
           </mat-form-field>
         </div>
         <div class="form-group">
-          <mat-form-field>
-            <mat-label>Email:</mat-label>
-            <input matInput formControlName="email" placeholder="Email" required>
-            <mat-error *ngIf="hasError('email', 'email')">Email is not valid</mat-error>
+          <mat-form-field [style.width.px]=350>
+            <mat-label>Liga:</mat-label>
+            <input matInput formControlName="liga" placeholder="Liga">
+            <mat-hint align="end">(max. 255 characters long)</mat-hint>
+            <mat-error *ngIf="hasError('liga', 'maxlength')">Limit exceed</mat-error>
           </mat-form-field>
         </div>
         <div class="form-group">
@@ -71,7 +72,7 @@
         </mat-radio-group>
 
         <div class="text-center mt-5">
-          <button mat-raised-button color="primary" type="submit" [disabled]="!userForm.valid">Save User</button>
+          <button mat-raised-button color="primary" type="submit" [disabled]="!equipoForm.valid">Save User</button>
         </div>
 
       </form>
