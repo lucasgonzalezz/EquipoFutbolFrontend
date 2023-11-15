@@ -23,6 +23,7 @@
       "ES2022",
       "dom"
     ]
+    // "strictNullChecks": false /****** modificado pro rafa */
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

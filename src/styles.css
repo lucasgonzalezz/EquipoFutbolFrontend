@@ -6,16 +6,4 @@
 
 @import "primeicons/primeicons.css";
 
-<<<<<<< HEAD
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Nunito:ital,wght@0,200;0,600;1,300&display=swap');/* Estilos para centrar el formulario */
-=======
-@import '@angular/material/prebuilt-themes/indigo-pink.css';
-
-html, body { height: 100%; width: 100%;}
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-h1, h2, h3 { font-weight: 500 !important; }
-table tr td a {text-decoration: none;font-size: larger;} 
-
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
->>>>>>> 33319c98d462804ba33cfc0b5b70c3376b506d90
