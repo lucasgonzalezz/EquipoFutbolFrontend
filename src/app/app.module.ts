@@ -74,7 +74,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { CalendarModule } from 'primeng/calendar';
 import { ConfirmPopupModule } from 'primeng/confirmpopup';
 import { RadioButtonModule } from 'primeng/radiobutton';
-
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -127,6 +127,7 @@ import { RadioButtonModule } from 'primeng/radiobutton';
     ButtonModule,
     InputTextModule,
     RadioButtonModule,
+    MatNativeDateModule,
     //--
     FormsModule,
     BrowserModule,

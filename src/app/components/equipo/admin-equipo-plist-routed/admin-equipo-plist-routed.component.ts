@@ -40,19 +40,20 @@ export class AdminEquipoPlistRoutedComponent implements OnInit {
 
   doEmpty($event: Event) {
     this.oConfirmationService.confirm({
-      target: $event.target as EventTarget, 
+      target: $event.target as EventTarget,
       message: 'Are you sure that you want to remove all the users?',
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
+        this.bLoading = true; // Set loading to true while processing
         this.oEquipoAjaxService.empty().subscribe({
           next: (oResponse: number) => {
             this.oMatSnackBar.open("Now there are " + oResponse + " users", '', { duration: 2000 });
-            this.bLoading = false;
+            this.bLoading = false; // Set loading to false after successful deletion
             this.forceReload.next(true);
           },
           error: (oError: HttpErrorResponse) => {
             this.oMatSnackBar.open("Error emptying users: " + oError.message, '', { duration: 2000 });
-            this.bLoading = false;
+            this.bLoading = false; // Set loading to false on error
           },
         })
       },
@@ -61,5 +62,6 @@ export class AdminEquipoPlistRoutedComponent implements OnInit {
       }
     });
   }
+  
 
 }

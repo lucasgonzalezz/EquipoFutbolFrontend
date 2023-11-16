@@ -44,8 +44,8 @@
           <td>{{e.liga}}</td>
           <td>{{e.username}}</td>
           <td class="text-center">
-            <span *ngIf="e.role==true">Admin</span>
-            <span *ngIf="e.role==false">User</span>
+            <span *ngIf="e.role==true">User</span>
+            <span *ngIf="e.role==false">Admin</span>
           </td>
           <td class="text-center">
             <a [routerLink]="['/admin','jugador','plist','byuser',e.id]" *ngIf="e.jugadores>0">{{e.jugadores}}</a>
@@ -74,7 +74,7 @@
 
 <p-confirmDialog #cd [style]="{ width: '30vw' }">
   <ng-template pTemplate="header">
-    <h5><i class="pi pi-exclamation-triangle p-mr-3" style="font-size: 2rem"></i> Equipo removal</h5>
+    <h5><i class="pi pi-exclamation-triangle p-mr-3" style="font-size: 2rem"></i> User removal</h5>
   </ng-template>
   <ng-template pTemplate="message">
     <div class="container d-flex align-items-center justify-content-center">

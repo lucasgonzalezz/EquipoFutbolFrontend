@@ -1,3 +1,28 @@
-<p>
-  admin-jugador-plist-routed works!
-</p>
+<div class="container">
+  <div class="row justify-content-center">
+      <div class="col">
+          <div class="d-flex justify-content-center">
+              <h1 class="my-3">List of threads</h1>
+          </div>
+          <div class="card text-center m-5" *ngIf="bLoading">
+              <div class="card-body">
+                  <h3 class="text-danger">Processing... wait, please.</h3>
+                  <div class="spinner-grow text-primary my-5" role="status">
+                      <span class="sr-only"></span>
+                  </div>
+              </div>
+          </div>
+          <div class="d-flex justify-content-center" *ngIf="!bLoading">
+              <a class="btn btn-primary" [routerLink]="['/admin','jugador','new']">Nuevo jugador</a>
+              <a class="btn btn-warning mx-1" (click)="doGenerateRandom(10)">+10</a>
+              <a class="btn btn-warning mx-1" (click)="doGenerateRandom(100)">+100</a>
+              <a class="btn btn-warning mx-1" (click)="doGenerateRandom(500)">+500</a>
+              <a class="btn btn-danger mx-1" (click)="doEmpty($event)">Empty</a>
+          </div>
+      </div>
+  </div>
+  <app-admin-jugador-plist-unrouted [forceReload]="forceReload" [id_equipo]="id_equipo"
+  *ngIf="!bLoading"></app-admin-jugador-plist-unrouted>
+</div>
+
+<p-confirmPopup></p-confirmPopup>

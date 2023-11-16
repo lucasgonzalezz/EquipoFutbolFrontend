@@ -5,7 +5,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { IEquipo, formOperation } from 'src/app/model/model.interfaces';
 import { EquipoAjaxService } from 'src/app/service/equipo.ajax.service';
-
+import { CALENDAR_ES } from 'src/environment/environment';
 
 @Component({
   selector: 'app-admin-equipo-form-unrouted',
@@ -16,6 +16,8 @@ export class AdminEquipoFormUnroutedComponent implements OnInit {
 
   @Input() id: number = 1;
   @Input() operation: formOperation = 'NEW'; //new or edit
+
+  es = CALENDAR_ES;
 
   equipoForm!: FormGroup;
   oUser: IEquipo = {} as IEquipo;
@@ -31,10 +33,12 @@ export class AdminEquipoFormUnroutedComponent implements OnInit {
   }
 
   initializeForm(oEquipo: IEquipo) {
+    const ano_fundacionValue = oEquipo.ano_fundacion ? new Date(oEquipo.ano_fundacion) : null;
     this.equipoForm = this.oFormBuilder.group({
       id: [oEquipo.id],
       nombre: [oEquipo.nombre, [Validators.required, Validators.minLength(3), Validators.maxLength(255)]],
       ciudad: [oEquipo.ciudad, [Validators.required, Validators.minLength(3), Validators.maxLength(255)]],
+      ano_fundacion: [ano_fundacionValue, [Validators.required]],
       estadio: [oEquipo.estadio, Validators.maxLength(255)],
       liga: [oEquipo.liga, Validators.maxLength(255)],
       username: [oEquipo.username, [Validators.required, Validators.minLength(6), Validators.maxLength(15), Validators.pattern('^[a-zA-Z0-9]+$')]],  
@@ -65,6 +69,11 @@ export class AdminEquipoFormUnroutedComponent implements OnInit {
 
   onSubmit() {
     if (this.equipoForm.valid) {
+    // Obtén el valor de ano_fundacion y asegúrate de que solo contenga la fecha
+    const ano_fundacionValue = this.equipoForm.get('ano_fundacion')?.value;
+    const formattedAnoFundacion = ano_fundacionValue ? new Date(ano_fundacionValue).toISOString().split('T')[0] : null;
+    // Actualiza el valor de ano_fundacion en el formulario
+    this.equipoForm.patchValue({ ano_fundacion: formattedAnoFundacion });
       if (this.operation == 'NEW') {
         this.oEquipoAjaxService.newOne(this.equipoForm.value).subscribe({
           next: (data: IEquipo) => {
@@ -72,7 +81,7 @@ export class AdminEquipoFormUnroutedComponent implements OnInit {
             this.initializeForm(this.oUser);
             // avisar al usuario que se ha creado correctamente
             this.oMatSnackBar.open("User has been created.", '', { duration: 2000 });
-            this.oRouter.navigate(['/admin', 'user', 'view', this.oUser]);
+            this.oRouter.navigate(['/admin', 'equipo', 'view', this.oUser]);
           },
           error: (error: HttpErrorResponse) => {
             this.status = error;

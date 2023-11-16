@@ -37,6 +37,16 @@
             <mat-error *ngIf="hasError('ciudad', 'maxlength')">Limit exceed</mat-error>
           </mat-form-field>
         </div>
+
+        <mat-form-field [style.width.px]=350>
+          <mat-label>Año fundación:</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="ano_fundacion" placeholder="Año fundación" required>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+          <div *ngIf="hasError('ano_fundacion', 'required')" class="text-danger"> Debes establecer una fecha válida
+          </div>
+        </mat-form-field>
+
         <div class="form-group">
           <mat-form-field [style.width.px]=350>
             <mat-label>Estadio:</mat-label>
@@ -66,8 +76,8 @@
         </div>
 
         <mat-radio-group aria-label="Type of user" formControlName="role" required>
-          <mat-radio-button [value]="true">Admin</mat-radio-button>
-          <mat-radio-button [value]="false">User</mat-radio-button>
+          <mat-radio-button [value]="false">Admin</mat-radio-button>
+          <mat-radio-button [value]="true">User</mat-radio-button>
           <mat-error *ngIf="hasError('role', 'required')">User Type is required</mat-error>
         </mat-radio-group>
 

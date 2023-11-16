@@ -1,3 +1,92 @@
-<p>
-  admin-jugador-form-unrouted works!
-</p>
+<div *ngIf="status!=null">
+  <div class="d-flex justify-content-center my-3">
+    <div class="alert alert-danger" role="alert">
+      {{status!.error.message}} - {{status!.message}}
+    </div>
+  </div>
+</div>
+
+<div *ngIf="status==null">
+  <div class="col-12">
+    <div class="d-flex justify-content-center my-3">
+      <form [formGroup]="jugadorForm" (ngSubmit)="onSubmit()">
+        
+        <div class="form-group">
+          <mat-form-field *ngIf="operation=='EDIT'">
+            <mat-label>ID:</mat-label>
+            <input matInput formControlName="id" placeholder="ID" required readonly>
+            <mat-hint align="end">(can't change this number)</mat-hint>
+          </mat-form-field>
+        </div>
+
+        <div class="form-group">
+          <mat-form-field [style.width.px]=350>
+            <mat-label>Nombre:</mat-label>
+            <input matInput formControlName="nombre" placeholder="Nombre" required>
+            <mat-hint align="end">(3 to 2048 characters long)</mat-hint>
+            <mat-error *ngIf="hasError('nombre', 'required')">Title is required</mat-error>
+            <mat-error *ngIf="hasError('nombre', 'minlength')">More length is required</mat-error>
+            <mat-error *ngIf="hasError('nombre', 'maxlength')">Limit exceed</mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="form-group">
+          <mat-form-field [style.width.px]=350>
+            <mat-label>Apellido:</mat-label>
+            <input matInput formControlName="apellido" placeholder="Apellido" required>
+            <mat-hint align="end">(3 to 2048 characters long)</mat-hint>
+            <mat-error *ngIf="hasError('apellido', 'required')">Title is required</mat-error>
+            <mat-error *ngIf="hasError('apellido', 'minlength')">More length is required</mat-error>
+            <mat-error *ngIf="hasError('apellido', 'maxlength')">Limit exceed</mat-error>
+          </mat-form-field>
+        </div>
+
+        <mat-form-field [style.width.px]=350>
+          <mat-label>Fecha nacimiento:</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="fecha_nacimiento" placeholder="Fecha nacimiento" required>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+          <div *ngIf="hasError('fecha_nacimiento', 'required')" class="text-danger"> Debes establecer una fecha válida
+          </div>
+        </mat-form-field>
+
+        <div class="form-group">
+          <mat-form-field [style.width.px]=350>
+            <mat-label>Posicion:</mat-label>
+            <input matInput formControlName="posicion" placeholder="Posicion" required>
+            <mat-hint align="end">(3 to 2048 characters long)</mat-hint>
+            <mat-error *ngIf="hasError('posicion', 'required')">Title is required</mat-error>
+            <mat-error *ngIf="hasError('posicion', 'minlength')">More length is required</mat-error>
+            <mat-error *ngIf="hasError('posicion', 'maxlength')">Limit exceed</mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="form-group">
+          <mat-form-field [style.width.px]=350>
+            <mat-label>Nacionalidad:</mat-label>
+            <input matInput formControlName="nacionalidad" placeholder="Nacionalidad" required>
+            <mat-hint align="end">(3 to 2048 characters long)</mat-hint>
+            <mat-error *ngIf="hasError('nacionalidad', 'required')">Title is required</mat-error>
+            <mat-error *ngIf="hasError('nacionalidad', 'minlength')">More length is required</mat-error>
+            <mat-error *ngIf="hasError('nacionalidad', 'maxlength')">Limit exceed</mat-error>
+          </mat-form-field>
+        </div>
+
+        <div formGroupName="equipo">
+          <div class="form-group">
+            <mat-form-field [style.width.px]=100>
+              <mat-label>Equipo:</mat-label>
+              <input matInput formControlName="id" placeholder="equipo" required readonly>
+            </mat-form-field>
+            <button class="btn btn-primary" type="button" (click)="onShowEquiposSelection()"> <i class="pi pi-search"></i>
+              Find a equipo</button>
+            {{oJugador.equipo.nombre}}
+          </div>
+        </div>
+        <div class="text-center mt-5">
+          <button mat-raised-button color="primary" type="submit" [disabled]="!jugadorForm.valid">Guardar Jugador</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
