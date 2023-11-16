@@ -1,3 +1,77 @@
-<p>
-  admin-miembroCuerpoTecnico-plist-unrouted works!
-</p>
+<div *ngIf="status!=null">
+  <div class="d-flex justify-content-center my-3">
+    <div class="alert alert-danger" role="alert">
+      {{status!.error.message}} - {{status!.message}}
+    </div>
+  </div>
+</div>
+
+<div *ngIf="status==null">
+  <div class="d-flex justify-content-between mb-3">
+    <h3 *ngIf="id_equipo>0">Filtered by equipo ({{id_equipo}} - {{oEquipo?.nombre}}) <a type="button"
+        class="btn btn-danger btn-sm" *ngIf="id_equipo>0" [routerLink]="['/admin','miembroCuerpoTecnico','plist']">reset filter</a></h3>
+    <h3 *ngIf="!(id_equipo>0)">No active filter</h3>
+    <h3>Showing {{oPage?.numberOfElements}} of total {{oPage?.totalElements}} jugadores.</h3>
+  </div>
+  <div class="flex justify-content-center mb-3">
+    <p-paginator (onPageChange)="onPageChang($event)" [first]="oPaginatorState.first!" [rows]="oPaginatorState.rows!"
+      [totalRecords]="oPage?.totalElements || 0" [rowsPerPageOptions]="[10, 20, 30]"></p-paginator>
+  </div>
+
+  <div class="mb-5 ">
+    <table class="table table-bordered table-striped table-hover table-sm">
+      <thead>
+        <tr>
+          <th (click)="doOrder('id')">ID</th>
+          <th (click)="doOrder('nombre')">Nombre</th>
+          <th (click)="doOrder('apellido')">Apellido</th>
+          <th (click)="doOrder('fecha_nacimiento')">Fecha nacimiento</th>
+          <th (click)="doOrder('nacionalidad')">Nacionalidad</th>
+          <th (click)="doOrder('titulo')">Titulo</th>
+          <th (click)="doOrder('equipo')">Equipo</th>
+          <th>Tools</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let m of oPage?.content" class="align-middle">
+          <td class="text-end"><strong>{{m.id}}</strong></td>
+          <td>{{m.nombre}}</td>
+          <td>{{m.apellido}}</td>
+          <td>{{m.fecha_nacimiento}}</td>
+          <td>{{m.nacionalidad}}</td>
+          <td>{{m.titulo}}</td>
+          <td>
+            <a [routerLink]="['/admin','miembroCuerpoTecnico','plist','byequipo',m.equipo.id]">({{m.equipo.id}}) {{m.equipo.nombre}}</a>
+          </td>
+          <td class="text-center">
+            <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+              <button class="btn btn-primary" [routerLink]="['/admin','miembroCuerpoTecnico','view',m.id]"><i
+                  class="pi pi-eye"></i></button>
+              <button class="btn btn-primary" (click)="doView(m)"><i class="pi pi-arrow-circle-up"></i></button>
+              <button class="btn btn-warning" [routerLink]="['/admin','miembroCuerpoTecnico','edit',m.id]"><i
+                  class="pi pi-pencil"></i></button>
+              <button class="btn btn-danger" (click)="doRemove(m)"><i
+                  class="pi pi-trash"></i></button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<p-confirmDialog #cd [style]="{ width: '30vw' }">
+  <ng-template pTemplate="header">
+    <h5><i class="pi pi-exclamation-triangle p-mr-3" style="font-size: 2rem"></i> Jugador removal</h5>
+  </ng-template>
+  <ng-template pTemplate="message">
+    <div class="container d-flex align-items-center justify-content-center">
+      <app-admin-miembroCuerpoTecnico-detail-unrouted [id]="oMiembroCuerpoTecnicoToRemove!.id"></app-admin-miembroCuerpoTecnico-detail-unrouted>
+    </div>
+  </ng-template>
+  <ng-template pTemplate="footer">
+    <p>¿Are you sure to remove jugador?</p>
+    <button class="btn btn-primary mx-1" pButton icon="pi pi-times" label="No" (click)="cd.reject()"></button>
+    <button class="btn btn-danger mx-1" pButton icon="pi pi-check" label="Yes" (click)="cd.accept()"></button>
+  </ng-template>
+</p-confirmDialog>

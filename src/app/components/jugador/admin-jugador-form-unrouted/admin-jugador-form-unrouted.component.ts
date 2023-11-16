@@ -35,12 +35,12 @@ export class AdminJugadorFormUnroutedComponent implements OnInit {
   }
 
   initializeForm(oJugador: IJugador) {
-    const ano_fundacionValue = oJugador.fecha_nacimiento ? new Date(oJugador.fecha_nacimiento) : null;
+    const fecha_nacimientoValue = oJugador.fecha_nacimiento ? new Date(oJugador.fecha_nacimiento) : null;
     this.jugadorForm = this.formBuilder.group({
       id: [oJugador.id],
       nombre: [oJugador.nombre, [Validators.required, Validators.minLength(3), Validators.maxLength(255)]],
       apellido: [oJugador.apellido, [Validators.required, Validators.minLength(3), Validators.maxLength(255)]],
-      fecha_nacimiento: [ano_fundacionValue, [Validators.required]],
+      fecha_nacimiento: [fecha_nacimientoValue, [Validators.required]],
       posicion: [oJugador.posicion, Validators.maxLength(255)],
       nacionalidad: [oJugador.nacionalidad, Validators.maxLength(255)],
       equipo: this.formBuilder.group({
