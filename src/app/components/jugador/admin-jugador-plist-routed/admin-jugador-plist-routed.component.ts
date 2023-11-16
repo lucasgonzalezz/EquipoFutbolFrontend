@@ -4,7 +4,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
 import { ConfirmationService } from 'primeng/api';
 import { Subject } from 'rxjs';
-import { EquipoAjaxService } from 'src/app/service/equipo.ajax.service';
+import { JugadorAjaxService } from 'src/app/service/jugador.ajax.service';
 
 @Component({
   selector: 'app-admin-jugador-plist-routed',
@@ -19,7 +19,7 @@ export class AdminJugadorPlistRoutedComponent implements OnInit {
 
   constructor(
     private oActivatedRoute: ActivatedRoute,
-    private oEquipoAjaxService: EquipoAjaxService,
+    private oJugadorAjaxService: JugadorAjaxService,
     private oConfirmationService: ConfirmationService,
     private oMatSnackBar: MatSnackBar
   ) {
@@ -30,7 +30,7 @@ export class AdminJugadorPlistRoutedComponent implements OnInit {
 
   doGenerateRandom(amount: number) {
     this.bLoading = true;
-    this.oEquipoAjaxService.generateRandom(amount).subscribe({
+    this.oJugadorAjaxService.generateRandom(amount).subscribe({
       next: (oResponse: number) => {
         this.oMatSnackBar.open("Now there are " + oResponse + " jugadores", '', { duration: 2000 });
         this.bLoading = false;
@@ -48,7 +48,7 @@ export class AdminJugadorPlistRoutedComponent implements OnInit {
       message: 'Are you sure that you want to remove all the jugadores?',
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
-        this.oEquipoAjaxService.empty().subscribe({
+        this.oJugadorAjaxService.empty().subscribe({
           next: (oResponse: number) => {
             this.oMatSnackBar.open("Now there are " + oResponse + " jugadores", '', { duration: 2000 });
             this.bLoading = false;
