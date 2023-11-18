@@ -56,6 +56,15 @@
     border-color: rgb(0, 0, 0); /* Color del borde */
 }
 
+/* Estilos para los botones cuando se pasa el ratón por encima */
+.btn-custom-view:hover,
+.btn-custom-warning:hover,
+.btn-custom-view2:hover,
+.btn-custom-danger:hover {
+    background-color: rgb(197, 92, 129); /* Rosa */
+    color: rgb(0, 0, 0); /* Texto rosa */
+}
+
 /* Estilos para el mensaje "No active filter" */
 h3 {
     font-family: 'Comfortaa', sans-serif;

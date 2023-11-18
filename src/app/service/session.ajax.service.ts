@@ -2,17 +2,18 @@ import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { API_URL } from 'src/environment/environment';
-import { IToken, SessionEvent } from '../model/model.interfaces';
+import { EquipoAjaxService } from './equipo.ajax.service';
+import { IEquipo, IToken, SessionEvent } from '../model/model.interfaces';
 
 @Injectable()
 export class SessionAjaxService {
 
     sUrl: string = API_URL + "/session";
-
     subjectSession = new Subject<SessionEvent>();
 
     constructor(
-        private oHttpClient: HttpClient
+        private oHttpClient: HttpClient,
+        private oEquipoAjaxService: EquipoAjaxService
     ) { }
 
     private parseJwt(token: string): IToken {
@@ -26,7 +27,6 @@ export class SessionAjaxService {
     }
 
     login(sUsername: string, sPassword: string): Observable<string> {
-        //const sUser: string = JSON.stringify({ username: sUsername, password: sPassword });
         return this.oHttpClient.post<string>(this.sUrl, { username: sUsername, password: sPassword });
     }
 
@@ -75,6 +75,14 @@ export class SessionAjaxService {
 
     emit(event: SessionEvent) {
         this.subjectSession.next(event);
+    }
+
+    getSessionUser(): Observable<IEquipo> | null {
+        if (this.isSessionActive()) {
+            return this.oEquipoAjaxService.getByUsername(this.getUsername())
+        } else {
+            return null;
+        }
     }
 
 }

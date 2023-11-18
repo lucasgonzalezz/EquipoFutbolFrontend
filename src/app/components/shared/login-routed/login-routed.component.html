@@ -20,15 +20,15 @@
           length</mat-error>
       </mat-form-field>
       <div class="control-group text-center">
-        <button class="btn-ini" mat-raised-button type="submit" color="primary">Iniciar sesión</button>
-        <button class="btn-reset" mat-raised-button type="button" color="warn" (click)="onReset()">Reset</button>
+        <button class="btn" mat-raised-button type="submit">Iniciar sesión</button>
+        <button class="btn" mat-raised-button type="button" (click)="onReset()">Reset</button>
       </div>
     </form>
 
     <div class="col-12 mt-5">
       <div class="control-group text-center mt-3">
-        <button class="btn btn-danger m-2" (click)="loginAdmin()">Log in as admin</button>
-        <button class="btn btn-success m-2" (click)="loginUser()">Log in as user</button>
+        <button class="btn" (click)="loginAdmin()">Log in as admin</button>
+        <button class="btn" (click)="loginUser()">Log in as user</button>
       </div>
     </div>
   </div>

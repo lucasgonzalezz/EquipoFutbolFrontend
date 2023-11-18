@@ -1,0 +1,20 @@
+.title {
+    letter-spacing: 4vw;    
+    font-size: 4vw; 
+    margin: 10px 0px;   
+    font-size: 40px;
+    font-family: 'Comfortaa', sans-serif;
+    color: rgba(197, 92, 129, 0.836);
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+.subtitle {
+    letter-spacing: 2vw;
+    word-spacing: 20px;
+    margin-right: 50px;
+    font-size: 20px;
+    font-family: 'Comfortaa', sans-serif;
+    color: rgba(197, 92, 129, 0.836);
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}

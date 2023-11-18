@@ -68,13 +68,13 @@ import { AdminMiembroCuerpoTecnicoPlistUnroutedComponent } from './components/mi
 import { AdminMiembroCuerpoTecnicoDetailUnroutedComponent } from './components/miembroCuerpoTecnico/admin-miembroCuerpoTecnico-detail-unrouted/admin-miembroCuerpoTecnico-detail-unrouted.component';
 import { UserMiembroCuerpoTecnicoFeaturedUnroutedComponent } from './components/miembroCuerpoTecnico/user-miembroCuerpoTecnico-featured-unrouted/user-miembroCuerpoTecnico-featured-unrouted.component';
 import { AdminMiembroCuerpoTecnicoSelectionUnroutedComponent } from './components/miembroCuerpoTecnico/admin-miembroCuerpoTecnico-selection-unrouted/admin-miembroCuerpoTecnico-selection-unrouted.component';
-
+//-Extra-
 import { MenubarModule } from 'primeng/menubar';
-import { MatDatepickerModule } from '@angular/material/datepicker';
 import { CalendarModule } from 'primeng/calendar';
-import { ConfirmPopupModule } from 'primeng/confirmpopup';
 import { RadioButtonModule } from 'primeng/radiobutton';
+import { ConfirmPopupModule } from 'primeng/confirmpopup';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 @NgModule({
   declarations: [
@@ -120,14 +120,14 @@ import { MatNativeDateModule } from '@angular/material/core';
     AdminMiembroCuerpoTecnicoSelectionUnroutedComponent,
   ],
   imports: [
-    MenubarModule,
-    MatDatepickerModule,
-    CalendarModule,
-    ConfirmPopupModule,
     ButtonModule,
+    MenubarModule,
+    CalendarModule,
     InputTextModule,
     RadioButtonModule,
+    ConfirmPopupModule,
     MatNativeDateModule,
+    MatDatepickerModule,
     //--
     FormsModule,
     BrowserModule,

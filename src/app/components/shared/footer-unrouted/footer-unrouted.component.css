@@ -6,12 +6,12 @@
     color: rgb(197, 92, 129);
     text-align: center;
     margin-top: 10px;
-    max-width: 1939px; /* Establece el ancho máximo según tus preferencias */
+    max-width: 1939px;
 }
 
 .container-fluid h4 {
     margin: 0;
-    font-size: 20px; /* Reduzco el tamaño de la letra para hacerlo un poco menos alto */
+    font-size: 20px;
     font-family: 'Comfortaa', sans-serif;
     font-weight: bold;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);

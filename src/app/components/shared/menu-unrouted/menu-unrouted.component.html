@@ -1,12 +1,15 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav class="navbar navbar-expand-md bg-body-tertiary">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">    <img src="https://image.spreadshirtmedia.net/image-server/v1/designs/15418315,width=178,height=178.png" alt="Logo" />
+        <a class="navbar-brand" href="/home"> <img
+                src="https://image.spreadshirtmedia.net/image-server/v1/designs/15418315,width=178,height=178.png"
+                alt="Logo" />
             &nbsp; Equipo Futbol</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
-            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+
         <div class="collapse navbar-collapse" id="navbarText">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+                aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
                 <li class="nav-item">
@@ -15,15 +18,18 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" [class.active]="strUrl.startsWith('/admin/user/plist')"
-                        routerLink="/admin/equipo/plist" *ngIf="strEquipoName && oSessionEquipo?.role==false">Equipos</a>
+                        routerLink="/admin/equipo/plist"
+                        *ngIf="strEquipoName && oSessionEquipo?.role==false">Equipos</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" [class.active]="strUrl.startsWith('/admin/thread/plist')"
-                        routerLink="/admin/jugador/plist" *ngIf="strEquipoName && oSessionEquipo?.role==false">Jugadores</a>
+                        routerLink="/admin/jugador/plist"
+                        *ngIf="strEquipoName && oSessionEquipo?.role==false">Jugadores</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" [class.active]="strUrl.startsWith('/admin/reply/plist')"
-                        routerLink="/admin/miembroCuerpoTecnico/plist" *ngIf="strEquipoName && oSessionEquipo?.role==false">Miembros del Cuerpo Técnico</a>
+                        routerLink="/admin/miembroCuerpoTecnico/plist"
+                        *ngIf="strEquipoName && oSessionEquipo?.role==false">Cuerpo Técnico</a>
                 </li>
             </ul>
 
@@ -34,10 +40,12 @@
                 Not logged in &nbsp;&nbsp;&nbsp;&nbsp;
             </span>
             <span class="navbar-text mx-1">
-                <a class="nav-link" routerLink="/login" href="#" *ngIf="!strEquipoName" [class.active]="strUrl.startsWith('/login')">Login</a>
+                <a class="nav-link" routerLink="/login" href="#" *ngIf="!strEquipoName"
+                    [class.active]="strUrl.startsWith('/login')">Login</a>
             </span>
             <span class="navbar-text mx-1">
-                <a class="nav-link" routerLink="/logout" href="#" *ngIf="strEquipoName" [class.active]="strUrl.startsWith('/logout')">Logout</a>
+                <a class="nav-link" routerLink="/logout" href="#" *ngIf="strEquipoName"
+                    [class.active]="strUrl.startsWith('/logout')">Logout</a>
             </span>
 
         </div>

@@ -5,7 +5,6 @@ import { IEquipo, SessionEvent } from 'src/app/model/model.interfaces';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { EquipoAjaxService } from 'src/app/service/equipo.ajax.service';
 import { SessionAjaxService } from 'src/app/service/session.ajax.service';
-import { AdminEquipoDetailUnroutedComponent } from '../../equipo/admin-equipo-detail-unrouted/admin-equipo-detail-unrouted.component';
 
 @Component({
   selector: 'app-menu-unrouted',
@@ -61,26 +60,6 @@ export class MenuUnroutedComponent implements OnInit {
         }
       }
     });
-
-    /*
-    doSessionUserView($event: Event) {
-      if (this.oSessionEquipo) {
-        let ref: DynamicDialogRef | undefined;
-        ref = this.oDialogService.open(AdminEquipoDetailUnroutedComponent, {
-          data: {
-            id: this.oSessionEquipo.id
-          },
-          header: 'View of user',
-          width: '50%',
-          contentStyle: { overflow: 'auto' },
-          baseZIndex: 10000,
-          maximizable: false
-        });
-      }
-      return false;
-      //$event.preventDefault
-    }
-    */
 
   }
 }

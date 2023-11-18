@@ -1,65 +1,59 @@
 .login-form-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    height: 100vh;
-  }
-  
-  .title {
-    margin-top: 50px;
-    margin-bottom: 10px;
-    font-family: 'Comfortaa', sans-serif;
-    font-weight: bold;
-    font-size: 40px;
-  }
-  
-  .form-box {
-    border: 1px solid #ddd;
-    padding: 40px;
-    border-radius: 30px;
-    box-shadow: 0 0 10px rgb(197, 92, 129);
-    margin-top: 10px;
-  }
-  
-  .control-group {
-    margin-top: 20px;
-  }
-  
-  .btn {
-    font-size: 13px;
-    font-family: 'Comfortaa', sans-serif;
-    padding: 10px 20px;
-    border-radius: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    font-weight: bold;
-    margin-right: 20px;
-  }
-  
-  .btn-warning {
-    background-color: rgb(27, 210, 88);
-    border-color: rgb(27, 210, 88);
-    color: #212529;
-    font-weight: bold;
-    padding: 10px 20px;
-  }
-  
-  .btn-primary {
-    background-color: rgba(238, 28, 28, 0.885);
-    border-color: rgba(238, 28, 28, 0.885);
-    color: #212529;
-    font-weight: bold;
-  }
+  font-family: 'Comfortaa', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100vh;
+}
 
-  .title {
-    color: rgba(197, 92, 129, 0.836); /* Color del texto del título */
-    font-weight: bold; /* Peso de la fuente */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Sombreado del texto */
-    font-size: 38px; /* Tamaño de la letra */
-  }
+.title {
+  margin-top: 50px;
+  margin-bottom: 10px;
+  font-family: 'Comfortaa', sans-serif;
+  font-weight: bold;
+  font-size: 40px;
+}
 
-  .subtitle {
-    font-family: 'Comfortaa', sans-serif;
-    font-weight: bold;
-    font-size: 20px;
-  }
+.form-box {
+  font-family: 'Comfortaa', sans-serif;
+  border: 1px solid #ddd;
+  padding: 40px;
+  border-radius: 30px;
+  box-shadow: 0 0 10px rgb(197, 92, 129);
+  margin-top: 10px;
+}
+
+.control-group {
+  font-family: 'Comfortaa', sans-serif;
+  margin-top: 20px;
+}
+
+.btn {
+  font-size: 13px;
+  font-family: 'Comfortaa', sans-serif;
+  padding: 10px 20px;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(197, 92, 129, 0.836);
+  font-weight: bold;
+  margin-right: 20px;
+  margin-left: 10px;
+}
+
+.btn:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.836);
+}
+
+.title {
+  color: rgba(197, 92, 129, 0.836);
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  font-size: 38px;
+}
+
+.subtitle {
+  font-family: 'Comfortaa', sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+  color: rgba(197, 92, 129, 0.836);
+}

@@ -1,60 +1,66 @@
 .login-form-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    height: 100vh;
-  }
-  
-  .title {
-    margin-bottom: 0;
-    font-family: 'Comfortaa', sans-serif;
-    font-weight: bold;
-    font-size: 40px;
-  }
-  
-  .form-box {
-    border: 1px solid #ddd;
-    padding: 40px;
-    border-radius: 30px;
-    box-shadow: 0 0 10px  rgb(197, 92, 129);
-    margin-top: 10px;
-  }
-  
-  .login-form {
-    width: 400px;
-    margin-bottom: 10px;
-    font-family: 'Comfortaa', sans-serif;
-    font-size: 16px;
-  }
-  
-  .full-width {
-    width: 100%;
-  }
-  
-  .control-group {
-    margin-top: 20px;
-  }
-  
-  .btn,
-  .btn-ini,
-  .btn-reset {
-    font-size: 13px;
-    font-family: 'Comfortaa', sans-serif;
-    padding: 10px 20px; /* Ajusta el tamaño del padding según tus necesidades */
-    border-radius: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    font-weight: bold;
-  }
-  
-  .btn-ini,
-  .btn-reset {
-    margin-right: 30px;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100vh;
+}
 
 .title {
-  color: rgba(197, 92, 129, 0.836); /* Color del texto del título */
-  font-weight: bold; /* Peso de la fuente */
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Sombreado del texto */
-  font-size: 38px; /* Tamaño de la letra */
+  margin-bottom: 0;
+  font-family: 'Comfortaa', sans-serif;
+  font-weight: bold;
+  font-size: 40px;
+}
+
+.form-box {
+  border: 1px solid #ddd;
+  padding: 40px;
+  border-radius: 30px;
+  box-shadow: 0 0 10px rgb(197, 92, 129);
+  margin-top: 10px;
+}
+
+.login-form {
+  width: 400px;
+  margin-bottom: 10px;
+  font-family: 'Comfortaa', sans-serif;
+  font-size: 16px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.control-group {
+  margin-top: 20px;
+}
+
+.btn {
+  font-size: 13px;
+  font-family: 'Comfortaa', sans-serif;
+  padding: 10px 20px;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(197, 92, 129, 0.836);
+  font-weight: bold;
+  margin-right: 20px;
+  margin-left: 10px;
+}
+
+.btn:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.836);
+}
+
+.title {
+  color: rgba(197, 92, 129, 0.836);
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  font-size: 38px;
+}
+
+mat-form-field {
+  width: 100%;
+  margin-bottom: 15px;
+  font-family: 'Comfortaa', sans-serif;
+
 }

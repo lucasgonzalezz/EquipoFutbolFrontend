@@ -1,9 +1,5 @@
-@import "primeng/resources/themes/lara-light-blue/theme.css";
-
-@import "primeng/resources/primeng.css";
-
-@import "bootstrap/dist/css/bootstrap.min.css";
-
 @import "primeicons/primeicons.css";
-
-@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Nunito:ital,wght@0,200;0,600;1,300&display=swap');/* Estilos para centrar el formulario */
+@import "primeng/resources/primeng.css";
+@import "bootstrap/dist/css/bootstrap.min.css";
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Nunito:ital,wght@0,200;0,600;1,300&display=swap');
