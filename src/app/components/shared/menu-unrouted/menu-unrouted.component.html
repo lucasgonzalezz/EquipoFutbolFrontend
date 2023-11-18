@@ -1,6 +1,7 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">Equipo Futbol</a>
+        <a class="navbar-brand" href="#">    <img src="https://image.spreadshirtmedia.net/image-server/v1/designs/15418315,width=178,height=178.png" alt="Logo" />
+            &nbsp; Equipo Futbol</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
             aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -10,7 +11,7 @@
 
                 <li class="nav-item">
                     <a class="nav-link" [class.active]="strUrl=='/home'||strUrl=='/'" aria-current="page"
-                        routerLink="/home">Home</a>
+                        routerLink="/home">&nbsp;&nbsp;&nbsp;&nbsp; Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" [class.active]="strUrl.startsWith('/admin/user/plist')"
@@ -30,7 +31,7 @@
                 Logged as <a href="#">{{strEquipoName}}</a>
             </span>
             <span class="navbar-text mx-1" *ngIf="!strEquipoName">
-                Not logged in
+                Not logged in &nbsp;&nbsp;&nbsp;&nbsp;
             </span>
             <span class="navbar-text mx-1">
                 <a class="nav-link" routerLink="/login" href="#" *ngIf="!strEquipoName" [class.active]="strUrl.startsWith('/login')">Login</a>

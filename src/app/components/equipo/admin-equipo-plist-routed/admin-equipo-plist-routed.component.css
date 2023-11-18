@@ -1,0 +1,54 @@
+/* Estilos para el texto "Lista de Equipos" */
+h1 {
+    font-family: 'Comfortaa', sans-serif;
+    color: rgb(197, 92, 129); /* Rosa */
+    text-align: center;
+}
+
+/* Estilos para el texto "Processing... wait, please." */
+.card.text-center h3 {
+    color: #dc3545; /* Rojo oscuro */
+}
+
+/* Estilos para los botones */
+.btn-primary,
+.btn-warning,
+.btn-danger {
+    font-family: 'Comfortaa', sans-serif;
+    background-color: rgb(197, 92, 129); /* Rosa */
+    color: #fff; /* Texto blanco */
+    border-color: rgb(0, 0, 0); /* Color del borde */
+}
+
+/* Estilos para el botón "Empty" */
+.btn-danger {
+    background-color: rgba(238, 28, 28, 0.885); /* Azul */
+}
+
+.btn-primary {
+    background-color: rgb(76, 142, 212); /* Azul */
+}
+
+/* Estilos para los botones cuando se pasa el ratón por encima */
+.btn-primary:hover,
+.btn-warning:hover,
+.btn-danger:hover {
+    background-color: rgb(197, 92, 129); /* Rosa */
+    color: rgb(0, 0, 0); /* Texto rosa */
+}
+
+/* Estilos para el contenedor de botones */
+.d-flex.justify-content-center {
+    margin-top: 20px; /* Ajusta el espacio superior */
+    text-align: center;
+}
+
+/* Estilos para el enlace "New equipo" */
+.btn-primary {
+    margin-right: 10px; /* Ajusta el margen derecho */
+}
+
+/* Estilos para el contenedor de confirmación */
+.p-confirmPopup {
+    background-color: rgba(197, 92, 129, 0.8); /* Fondo rosa semi-transparente */
+}

@@ -84,7 +84,7 @@ export class AdminJugadorPlistUnroutedComponent implements OnInit {
       data: {
         id: u.id
       },
-      header: 'View of thread',
+      header: 'Vita de jugaor',
       width: '50%',
       contentStyle: { overflow: 'auto' },
       baseZIndex: 10000,
@@ -96,14 +96,14 @@ export class AdminJugadorPlistUnroutedComponent implements OnInit {
     this.oJugadorToRemove = u;
     this.oCconfirmationService.confirm({
       accept: () => {
-        this.oMatSnackBar.open("The jugador has been removed.", '', { duration: 2000 });
+        this.oMatSnackBar.open("El jugador ha sido eliminado.", '', { duration: 2000 });
         this.oJugadorAjaxService.removeOne(this.oJugadorToRemove?.id).subscribe({
           next: () => {
             this.getPage();
           },
           error: (error: HttpErrorResponse) => {
             this.status = error;
-            this.oMatSnackBar.open("The juagdor hasn't been removed.", "", { duration: 2000 });
+            this.oMatSnackBar.open("El jugador no ha sido eliminado.", "", { duration: 2000 });
           }
         });
       },

@@ -6,7 +6,7 @@
   </div>
 </div>
 
-<div *ngIf="status==null">
+<div class="form-container" *ngIf="status==null">
   <div class="col-12">
     <div class="d-flex justify-content-center my-3">
       <form [formGroup]="equipoForm" (ngSubmit)="onSubmit()">
@@ -82,10 +82,12 @@
         </mat-radio-group>
 
         <div class="text-center mt-5">
-          <button mat-raised-button color="primary" type="submit" [disabled]="!equipoForm.valid">Save User</button>
+          <button mat-raised-button class="btn" type="submit" [disabled]="!equipoForm.valid">Save User</button>
         </div>
 
       </form>
     </div>
   </div>
 </div>
+<br>
+<br>

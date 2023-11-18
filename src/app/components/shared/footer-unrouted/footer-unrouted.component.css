@@ -1,19 +1,18 @@
-body {
-            margin: 0; /* Eliminar el margen predeterminado del cuerpo */
-            padding: 0; /* Eliminar el relleno predeterminado del cuerpo */
-            background-color: #f0f0f0; /* Color de fondo de la página */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh; /* Establecer la altura del cuerpo al 100% de la ventana */
-        }
+.container-fluid {
+    padding: 5px;
+    box-shadow: 0 1px 8px rgb(197, 92, 129);
+    font-family: 'Comfortaa', sans-serif;
+    background-color: rgba(255, 255, 255, 0.836);
+    color: rgb(197, 92, 129);
+    text-align: center;
+    margin-top: 10px;
+    max-width: 1939px; /* Establece el ancho máximo según tus preferencias */
+}
 
-        .container {
-            padding: 20px; /* Añadir un espacio más pequeño alrededor del contenido */
-            width: 100%; /* Hacer que el contenedor ocupe todo el ancho disponible */
-        }
-
-        h4 {
-            text-align: center; /* Centrar el texto */
-            margin: 0; /* Eliminar el margen superior e inferior del h4 */
-        }
+.container-fluid h4 {
+    margin: 0;
+    font-size: 20px; /* Reduzco el tamaño de la letra para hacerlo un poco menos alto */
+    font-family: 'Comfortaa', sans-serif;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}

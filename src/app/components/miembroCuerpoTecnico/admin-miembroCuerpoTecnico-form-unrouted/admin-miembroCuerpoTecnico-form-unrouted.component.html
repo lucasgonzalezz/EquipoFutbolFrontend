@@ -6,7 +6,7 @@
   </div>
 </div>
 
-<div *ngIf="status==null">
+<div class="form-container" *ngIf="status==null">
   <div class="col-12">
     <div class="d-flex justify-content-center my-3">
       <form [formGroup]="miembroCuerpoTecnicoForm" (ngSubmit)="onSubmit()">
@@ -77,16 +77,18 @@
             <mat-form-field [style.width.px]=100>
               <mat-label>Equipo:</mat-label>
               <input matInput formControlName="id" placeholder="equipo" required readonly>
-            </mat-form-field>
-            <button class="btn btn-primary" type="button" (click)="onShowEquiposSelection()"> <i class="pi pi-search"></i>
-              Find a equipo</button>
+            </mat-form-field><br>
+            <button class="btn" type="button" (click)="onShowEquiposSelection()"> <i class="pi pi-search"></i>
+              Find a equipo</button> &nbsp;&nbsp;
             {{oMiembroCuerpoTecnico.equipo.nombre}}
           </div>
         </div>
         <div class="text-center mt-5">
-          <button mat-raised-button color="primary" type="submit" [disabled]="!miembroCuerpoTecnicoForm.valid">Guardar Miembro del Cuerpo Tecnico</button>
+          <button mat-raised-button type="submit" class="btn" [disabled]="!miembroCuerpoTecnicoForm.valid">Guardar Miembro del Cuerpo Tecnico</button>
         </div>
       </form>
     </div>
   </div>
 </div>
+<br>
+<br>

@@ -78,7 +78,7 @@ export class AdminEquipoPlistUnroutedComponent implements OnInit {
       data: {
         id: e.id
       },
-      header: 'View of equipo',
+      header: 'Vista de equipo',
       width: '50%',
       contentStyle: { overflow: 'auto' },
       baseZIndex: 10000,
@@ -90,19 +90,19 @@ export class AdminEquipoPlistUnroutedComponent implements OnInit {
     this.oEquipoToRemove = e;
     this.oCconfirmationService.confirm({
       accept: () => {
-        this.oMatSnackBar.open("The user has been removed.", '', { duration: 2000 });
+        this.oMatSnackBar.open("El equipo ha sido eliminado.", '', { duration: 2000 });
         this.oEquipoAjaxService.removeOne(this.oEquipoToRemove?.id).subscribe({
           next: () => {
             this.getPage();
           },
           error: (error: HttpErrorResponse) => {
             this.status = error;
-            this.oMatSnackBar.open("The user hasn't been removed.", "", { duration: 2000 });
+            this.oMatSnackBar.open("El equipo no ha sido eliminado.", "", { duration: 2000 });
           }
         });
       },
       reject: (type: ConfirmEventType) => {
-        this.oMatSnackBar.open("The user hasn't been removed.", "", { duration: 2000 });
+        this.oMatSnackBar.open("El equipo no ha sido eliminado.", "", { duration: 2000 });
       }
     });
   }

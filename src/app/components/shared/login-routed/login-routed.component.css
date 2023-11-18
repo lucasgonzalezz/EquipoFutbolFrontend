@@ -17,7 +17,7 @@
     border: 1px solid #ddd;
     padding: 40px;
     border-radius: 30px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 10px  rgb(197, 92, 129);
     margin-top: 10px;
   }
   
@@ -37,7 +37,8 @@
   }
   
   .btn,
-  .btn1 {
+  .btn-ini,
+  .btn-reset {
     font-size: 13px;
     font-family: 'Comfortaa', sans-serif;
     padding: 10px 20px; /* Ajusta el tamaño del padding según tus necesidades */
@@ -46,6 +47,14 @@
     font-weight: bold;
   }
   
-  .btn1 {
-    margin-right: 20px;
+  .btn-ini,
+  .btn-reset {
+    margin-right: 30px;
   }
+
+.title {
+  color: rgba(197, 92, 129, 0.836); /* Color del texto del título */
+  font-weight: bold; /* Peso de la fuente */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Sombreado del texto */
+  font-size: 38px; /* Tamaño de la letra */
+}

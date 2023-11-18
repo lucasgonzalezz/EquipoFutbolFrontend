@@ -1,0 +1,45 @@
+.form-container {
+  max-width: 500px;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(197, 92, 129, 0.836);
+  font-family: 'Comfortaa', sans-serif;
+}
+
+/* Opcional: Cambiar el tipo de letra para todo el formulario */
+form {
+  font-family: 'Comfortaa', sans-serif;
+}
+
+mat-form-field {
+  width: 100%;
+  margin-bottom: 15px;
+  font-family: 'Comfortaa', sans-serif;
+
+}
+
+mat-label {
+  font-weight: bold;
+  font-family: 'Comfortaa', sans-serif;
+
+}
+
+mat-radio-group {
+  flex-direction: column;
+  font-family: 'Comfortaa', sans-serif;
+}
+
+mat-radio-button {
+  margin-bottom: 5px;
+  font-family: 'Comfortaa', sans-serif;
+}
+.text-center {
+  text-align: center;
+  font-family: 'Comfortaa', sans-serif;
+}
+
+.btn {
+  box-shadow: 0 4px 8px rgba(197, 92, 129, 0.836);
+}

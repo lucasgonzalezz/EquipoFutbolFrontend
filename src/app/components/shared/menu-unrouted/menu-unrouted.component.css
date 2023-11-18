@@ -1,0 +1,58 @@
+/* menu-unrouted.component.css */
+
+/* Estilo general del menú */
+.navbar {
+    box-shadow: 0 1px 8px rgb(197, 92, 129); /* Sombra del menú */
+    font-family: 'Comfortaa', sans-serif;
+    height: 100px; /* Altura del menú */
+    padding-top: 10px; /* Espacio extra en la parte superior del menú */
+    padding-bottom: 10px; /* Espacio extra en la parte inferior del menú */
+}
+
+/* Estilo del logo */
+.navbar-brand img {
+    max-height: 80px; /* Altura máxima del logo */
+}
+
+/* Estilo del título "Equipo Futbol" */
+.navbar-brand {
+    color: rgba(197, 92, 129, 0.836); /* Color del texto del título */
+    font-weight: bold; /* Peso de la fuente */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Sombreado del texto */
+    font-size: 24px; /* Tamaño de la letra */
+}
+
+/* Estilo de los elementos del menú */
+.navbar-nav .nav-link {
+    color: rgb(197, 92, 129); /* Color del texto del enlace */
+    font-weight: bold; /* Peso de la fuente */
+    font-size: 16px; /* Tamaño de la letra */
+    transition: color 0.3s; /* Transición de color durante 0.3 segundos */
+}
+
+/* Cambiar color al pasar el ratón sobre los enlaces del menú */
+.navbar-nav .nav-link:hover {
+    color: #ff3877; /* Color rosa más oscuro al pasar el ratón */
+}
+
+/* Estilo para el enlace activo */
+.navbar-nav .nav-link.active {
+    color: #000000; /* Color del texto del enlace activo */
+}
+
+/* Estilo para el texto a la derecha del menú (Logged as / Not logged in) */
+.navbar-text {
+    color: #000000; /* Color del texto */
+    font-weight: bold; /* Peso de la fuente */
+    font-size: 16px; /* Tamaño de la letra */
+}
+
+/* Estilo para el enlace de logout */
+.navbar-text a {
+    color: rgb(197, 92, 129); /* Color del texto del enlace */
+}
+
+/* Estilo para el enlace de login */
+.navbar-text a.active, .navbar-text a.login:hover, .navbar-text a.logout:hover {
+    color: #000000; /* Color del enlace de login/logout al pasar el ratón */
+}

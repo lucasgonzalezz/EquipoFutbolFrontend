@@ -1,4 +1,71 @@
-th {
+/* Estilo para la tabla */
+.table {
+    font-family: 'Comfortaa', sans-serif;
+    box-shadow: 0 2px 10px rgb(197, 92, 129); /* Agrega sombra a la tabla */
+    border-collapse: collapse;
+    width: 100%;
+}
+
+/* Estilo para las celdas del encabezado */
+.table th {
     text-align: center;
     vertical-align: middle;
+    color: rgb(197, 92, 129); /* Texto blanco */
+}
+
+/* Estilo para las celdas del cuerpo de la tabla */
+.table td {
+    text-align: center;
+    vertical-align: middle;
+}
+
+/* Estilo para las filas impares (opcional) */
+.table tbody tr:nth-child(odd) {
+    background-color: #f2f2f2;
+}
+
+/* Estilo para las filas cuando el ratón pasa por encima */
+.table tbody tr:hover {
+    background-color: rgb(197, 92, 129); /* Rosa */
+    color: #fff; /* Texto blanco */
+}
+
+/* Estilos personalizados para el botón "Ver" */
+.btn-custom-view {
+    background-color: rgb(197, 92, 129); /* Rosa */
+    color: #fff; /* Texto blanco */
+    border-color: rgb(0, 0, 0); /* Color del borde */
+}
+
+/* Estilos personalizados para el botón "Editar" */
+.btn-custom-view2 {
+    background-color: rgb(197, 92, 129); /* Rosa */
+    color: #fff; /* Texto blanco */
+    border-color: rgb(0, 0, 0); /* Color del borde */
+}
+
+.btn-custom-danger {
+    background-color: rgba(238, 28, 28, 0.885); /* Azul */
+    color: #fff; /* Texto blanco */
+    border-color: rgb(0, 0, 0); /* Color del borde */
+}
+
+.btn-custom-warning {
+    background-color: rgb(76, 142, 212); /* Azul */
+    color: #fff; /* Texto blanco */
+    border-color: rgb(0, 0, 0); /* Color del borde */
+}
+
+/* Estilos para el mensaje "No active filter" */
+h3 {
+    font-family: 'Comfortaa', sans-serif;
+    color: rgb(197, 92, 129); /* Rosa */
+    font-weight: bold; /* Peso de la fuente */
+}
+
+/* Estilos para el mensaje "Showing X of total Y equipos." */
+h3:last-child {
+    font-family: 'Comfortaa', sans-serif;
+    color: rgb(197, 92, 129); /* Rosa */
+    font-weight: bold; /* Peso de la fuente */
 }

@@ -1,0 +1,7 @@
+.my-5 {
+    font-size: 40px;
+    font-family: 'Comfortaa', sans-serif;
+    color: rgba(197, 92, 129, 0.836); /* Color del texto del título */
+    font-weight: bold; /* Peso de la fuente */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Sombreado del texto */
+}
