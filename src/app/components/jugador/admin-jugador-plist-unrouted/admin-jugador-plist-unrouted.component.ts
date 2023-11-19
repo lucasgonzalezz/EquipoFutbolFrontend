@@ -13,7 +13,8 @@ import { AdminJugadorDetailUnroutedComponent } from './../admin-jugador-detail-u
 @Component({
   selector: 'app-admin-jugador-plist-unrouted',
   templateUrl: './admin-jugador-plist-unrouted.component.html',
-  styleUrls: ['./admin-jugador-plist-unrouted.component.css']
+  styleUrls: ['./admin-jugador-plist-unrouted.component.css'],
+  providers: [DialogService, ConfirmationService]
 })
 export class AdminJugadorPlistUnroutedComponent implements OnInit {
 

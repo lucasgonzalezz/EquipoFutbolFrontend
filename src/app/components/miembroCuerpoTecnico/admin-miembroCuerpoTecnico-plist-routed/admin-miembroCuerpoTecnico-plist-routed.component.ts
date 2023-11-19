@@ -3,13 +3,15 @@ import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
 import { ConfirmationService } from 'primeng/api';
+import { DialogService } from 'primeng/dynamicdialog';
 import { Subject } from 'rxjs';
 import { MiembroCuerpoTecnicoAjaxService } from 'src/app/service/miembroCuerpoTecnico.ajax.service';
 
 @Component({
   selector: 'app-admin-miembroCuerpoTecnico-plist-routed',
   templateUrl: './admin-miembroCuerpoTecnico-plist-routed.component.html',
-  styleUrls: ['./admin-miembroCuerpoTecnico-plist-routed.component.css']
+  styleUrls: ['./admin-miembroCuerpoTecnico-plist-routed.component.css'],
+  providers: [DialogService, ConfirmationService]
 })
 export class AdminMiembroCuerpoTecnicoPlistRoutedComponent implements OnInit {
 

@@ -2,12 +2,14 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ConfirmationService } from 'primeng/api';
+import { DialogService } from 'primeng/dynamicdialog';
 import { Subject } from 'rxjs';
 import { EquipoAjaxService } from 'src/app/service/equipo.ajax.service';
 @Component({
   selector: 'app-admin-equipo-plist-routed',
   templateUrl: './admin-equipo-plist-routed.component.html',
-  styleUrls: ['./admin-equipo-plist-routed.component.css']
+  styleUrls: ['./admin-equipo-plist-routed.component.css'],
+  providers: [DialogService, ConfirmationService]
 })
 export class AdminEquipoPlistRoutedComponent implements OnInit {
 

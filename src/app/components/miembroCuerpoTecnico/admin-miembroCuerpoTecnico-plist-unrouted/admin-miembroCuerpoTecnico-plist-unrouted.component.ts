@@ -13,7 +13,8 @@ import { AdminMiembroCuerpoTecnicoDetailUnroutedComponent } from './../admin-mie
 @Component({
   selector: 'app-admin-miembroCuerpoTecnico-plist-unrouted',
   templateUrl: './admin-miembroCuerpoTecnico-plist-unrouted.component.html',
-  styleUrls: ['./admin-miembroCuerpoTecnico-plist-unrouted.component.css']
+  styleUrls: ['./admin-miembroCuerpoTecnico-plist-unrouted.component.css'],
+  providers: [DialogService, ConfirmationService]
 })
 export class AdminMiembroCuerpoTecnicoPlistUnroutedComponent implements OnInit {
 

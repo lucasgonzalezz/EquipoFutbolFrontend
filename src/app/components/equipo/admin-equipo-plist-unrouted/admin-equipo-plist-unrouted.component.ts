@@ -11,7 +11,8 @@ import { Subject } from 'rxjs';
 @Component({
   selector: 'app-admin-equipo-plist-unrouted',
   templateUrl: './admin-equipo-plist-unrouted.component.html',
-  styleUrls: ['./admin-equipo-plist-unrouted.component.css']
+  styleUrls: ['./admin-equipo-plist-unrouted.component.css'],
+  providers: [DialogService, ConfirmationService]
 })
 export class AdminEquipoPlistUnroutedComponent implements OnInit {
 

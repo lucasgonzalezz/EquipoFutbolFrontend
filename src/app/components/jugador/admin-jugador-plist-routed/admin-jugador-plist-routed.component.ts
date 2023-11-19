@@ -3,13 +3,16 @@ import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
 import { ConfirmationService } from 'primeng/api';
+import { DialogService } from 'primeng/dynamicdialog';
 import { Subject } from 'rxjs';
 import { JugadorAjaxService } from 'src/app/service/jugador.ajax.service';
 
 @Component({
   selector: 'app-admin-jugador-plist-routed',
   templateUrl: './admin-jugador-plist-routed.component.html',
-  styleUrls: ['./admin-jugador-plist-routed.component.css']
+  styleUrls: ['./admin-jugador-plist-routed.component.css'],
+  providers: [DialogService, ConfirmationService]
+
 })
 export class AdminJugadorPlistRoutedComponent implements OnInit {
 
