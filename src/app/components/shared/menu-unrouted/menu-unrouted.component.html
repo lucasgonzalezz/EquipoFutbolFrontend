@@ -14,20 +14,20 @@
 
                 <li class="nav-item">
                     <a class="nav-link" [class.active]="strUrl=='/home'||strUrl=='/'" aria-current="page"
-                        routerLink="/home">&nbsp;&nbsp;&nbsp;&nbsp; Home</a>
+                        routerLink="/home">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" [class.active]="strUrl.startsWith('/admin/user/plist')"
+                    <a class="nav-link" [class.active]="strUrl.startsWith('/admin/equipo')"
                         routerLink="/admin/equipo/plist"
                         *ngIf="strEquipoName && oSessionEquipo?.role==false">Equipos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" [class.active]="strUrl.startsWith('/admin/thread/plist')"
+                    <a class="nav-link" [class.active]="strUrl.startsWith('/admin/jugador')"
                         routerLink="/admin/jugador/plist"
                         *ngIf="strEquipoName && oSessionEquipo?.role==false">Jugadores</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" [class.active]="strUrl.startsWith('/admin/reply/plist')"
+                    <a class="nav-link" [class.active]="strUrl.startsWith('/admin/miembroCuerpoTecnico')"
                         routerLink="/admin/miembroCuerpoTecnico/plist"
                         *ngIf="strEquipoName && oSessionEquipo?.role==false">Cuerpo Técnico</a>
                 </li>

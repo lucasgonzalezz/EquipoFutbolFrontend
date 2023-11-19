@@ -25,7 +25,7 @@
 }
 
 .navbar-nav .nav-link:hover {
-    color: #ff3877;
+    color: rgb(0, 0, 0);
 }
 
 .navbar-nav .nav-link.active {
@@ -46,4 +46,11 @@
 .navbar-text a.login:hover,
 .navbar-text a.logout:hover {
     color: #000000;
+}
+
+.navbar-nav .nav-item .nav-link.active {
+    background-color: rgba(197, 92, 129, 0.836);
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
