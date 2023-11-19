@@ -51,18 +51,21 @@
             <span *ngIf="e.jugadores==0">0</span>
           </td>
           <td class="text-center">
-            <a [routerLink]="['/admin','miembroCuerpoTecnico','plist','byuser',e.id]" *ngIf="e.miembrosCuerpoTecnico>0">{{e.miembrosCuerpoTecnico}}</a>
+            <a [routerLink]="['/admin','miembroCuerpoTecnico','plist','byuser',e.id]"
+              *ngIf="e.miembrosCuerpoTecnico>0">{{e.miembrosCuerpoTecnico}}</a>
             <span *ngIf="e.miembrosCuerpoTecnico==0">0</span>
           </td>
           <td class="text-center">
             <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-              <button class="btn btn-custom-view" [routerLink]="['/admin','equipo','view',e.id]"><i class="pi pi-eye"></i></button>
+              <button class="btn btn-custom-view" [routerLink]="['/admin','equipo','view',e.id]"><i
+                  class="pi pi-eye"></i></button>
               <button class="btn btn-custom-view2" (click)="doView(e)"><i class="pi pi-arrow-circle-up"></i></button>
-              <button class="btn btn-custom-warning" [routerLink]="['/admin','equipo','edit',e.id]"><i class="pi pi-pencil"></i></button>
-              <button *ngIf="e.jugadores==0 && e.miembrosCuerpoTecnico==0" class="btn btn-custom-danger" (click)="doRemove(e)"><i class="pi pi-trash"></i></button>
+              <button class="btn btn-custom-warning" [routerLink]="['/admin','equipo','edit',e.id]"><i
+                  class="pi pi-pencil"></i></button>
+              <button *ngIf="e.jugadores==0 && e.miembrosCuerpoTecnico==0" class="btn btn-custom-danger"
+                (click)="doRemove(e)"><i class="pi pi-trash"></i></button>
             </div>
           </td>
-          
         </tr>
       </tbody>
     </table>

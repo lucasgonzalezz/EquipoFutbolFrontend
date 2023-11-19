@@ -15,12 +15,12 @@ import { CALENDAR_ES } from 'src/environment/environment';
 export class AdminEquipoFormUnroutedComponent implements OnInit {
 
   @Input() id: number = 1;
-  @Input() operation: formOperation = 'NEW'; //new or edit
+  @Input() operation: formOperation = 'NEW';
 
   es = CALENDAR_ES;
 
   equipoForm!: FormGroup;
-  oUser: IEquipo = {} as IEquipo;
+  oEquipo: IEquipo = {} as IEquipo;
   status: HttpErrorResponse | null = null;
 
   constructor(
@@ -29,7 +29,7 @@ export class AdminEquipoFormUnroutedComponent implements OnInit {
     private oRouter: Router,
     private oMatSnackBar: MatSnackBar
   ) {
-    this.initializeForm(this.oUser);
+    this.initializeForm(this.oEquipo);
   }
 
   initializeForm(oEquipo: IEquipo) {
@@ -39,9 +39,9 @@ export class AdminEquipoFormUnroutedComponent implements OnInit {
       nombre: [oEquipo.nombre, [Validators.required, Validators.minLength(3), Validators.maxLength(255)]],
       ciudad: [oEquipo.ciudad, [Validators.required, Validators.minLength(3), Validators.maxLength(255)]],
       ano_fundacion: [ano_fundacionValue, [Validators.required]],
-      estadio: [oEquipo.estadio, Validators.maxLength(255)],
-      liga: [oEquipo.liga, Validators.maxLength(255)],
-      username: [oEquipo.username, [Validators.required, Validators.minLength(6), Validators.maxLength(15), Validators.pattern('^[a-zA-Z0-9]+$')]],  
+      estadio: [oEquipo.estadio, [Validators.required, Validators.minLength(3), Validators.maxLength(255)]],
+      liga: [oEquipo.liga, [Validators.required, Validators.minLength(3), Validators.maxLength(255)]],
+      username: [oEquipo.username, [Validators.required, Validators.minLength(6), Validators.maxLength(15), Validators.pattern('^[a-zA-Z0-9]+$')]],
       role: [oEquipo.role, Validators.required]
     });
   }
@@ -50,16 +50,16 @@ export class AdminEquipoFormUnroutedComponent implements OnInit {
     if (this.operation == 'EDIT') {
       this.oEquipoAjaxService.getOne(this.id).subscribe({
         next: (data: IEquipo) => {
-          this.oUser = data;
-          this.initializeForm(this.oUser);
+          this.oEquipo = data;
+          this.initializeForm(this.oEquipo);
         },
         error: (error: HttpErrorResponse) => {
           this.status = error;
-          this.oMatSnackBar.open("Error reading user from server.", '', { duration: 2000 });
+          this.oMatSnackBar.open("Error al leer el usuario del servidor.", '', { duration: 2000 });
         }
       })
     } else {
-      this.initializeForm(this.oUser);
+      this.initializeForm(this.oEquipo);
     }
   }
 
@@ -69,38 +69,34 @@ export class AdminEquipoFormUnroutedComponent implements OnInit {
 
   onSubmit() {
     if (this.equipoForm.valid) {
-    // Obtén el valor de ano_fundacion y asegúrate de que solo contenga la fecha
-    const ano_fundacionValue = this.equipoForm.get('ano_fundacion')?.value;
-    const formattedAnoFundacion = ano_fundacionValue ? new Date(ano_fundacionValue).toISOString().split('T')[0] : null;
-    // Actualiza el valor de ano_fundacion en el formulario
-    this.equipoForm.patchValue({ ano_fundacion: formattedAnoFundacion });
+      const ano_fundacionValue = this.equipoForm.get('ano_fundacion')?.value;
+      const formattedAnoFundacion = ano_fundacionValue ? new Date(ano_fundacionValue).toISOString().split('T')[0] : null;
+      this.equipoForm.patchValue({ ano_fundacion: formattedAnoFundacion });
       if (this.operation == 'NEW') {
         this.oEquipoAjaxService.newOne(this.equipoForm.value).subscribe({
           next: (data: IEquipo) => {
-            this.oUser = data;
-            this.initializeForm(this.oUser);
-            // avisar al usuario que se ha creado correctamente
-            this.oMatSnackBar.open("User has been created.", '', { duration: 2000 });
-            this.oRouter.navigate(['/admin', 'equipo', 'view', this.oUser]);
+            this.oEquipo = data;
+            this.initializeForm(this.oEquipo);
+            this.oMatSnackBar.open("Equipo creado.", '', { duration: 2000 });
+            this.oRouter.navigate(['/admin', 'equipo', 'view', this.oEquipo]);
           },
           error: (error: HttpErrorResponse) => {
             this.status = error;
-            this.oMatSnackBar.open("Can't create user.", '', { duration: 2000 });
+            this.oMatSnackBar.open("No se puede crear el equipo.", '', { duration: 2000 });
           }
         })
 
       } else {
         this.oEquipoAjaxService.updateOne(this.equipoForm.value).subscribe({
           next: (data: IEquipo) => {
-            this.oUser = data;
-            this.initializeForm(this.oUser);
-            // avisar al usuario que se ha actualizado correctamente
-            this.oMatSnackBar.open("User has been updated.", '', { duration: 2000 });
-            this.oRouter.navigate(['/admin', 'equipo', 'view', this.oUser.id]);
+            this.oEquipo = data;
+            this.initializeForm(this.oEquipo);
+            this.oMatSnackBar.open("Equipo actualizado.", '', { duration: 2000 });
+            this.oRouter.navigate(['/admin', 'equipo', 'view', this.oEquipo.id]);
           },
           error: (error: HttpErrorResponse) => {
             this.status = error;
-            this.oMatSnackBar.open("Can't update user.", '', { duration: 2000 });
+            this.oMatSnackBar.open("No se puede actualizar el equipo.", '', { duration: 2000 });
           }
         })
       }

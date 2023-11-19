@@ -10,7 +10,7 @@
   <div class="col-12">
     <div class="d-flex justify-content-center my-3">
       <form [formGroup]="jugadorForm" (ngSubmit)="onSubmit()">
-        
+
         <div class="form-group">
           <mat-form-field *ngIf="operation=='EDIT'">
             <mat-label>ID:</mat-label>
@@ -24,7 +24,7 @@
             <mat-label>Nombre:</mat-label>
             <input matInput formControlName="nombre" placeholder="Nombre" required>
             <mat-hint align="end">(3 to 2048 characters long)</mat-hint>
-            <mat-error *ngIf="hasError('nombre', 'required')">Title is required</mat-error>
+            <mat-error *ngIf="hasError('nombre', 'required')">Nombre is required</mat-error>
             <mat-error *ngIf="hasError('nombre', 'minlength')">More length is required</mat-error>
             <mat-error *ngIf="hasError('nombre', 'maxlength')">Limit exceed</mat-error>
           </mat-form-field>
@@ -35,27 +35,27 @@
             <mat-label>Apellido:</mat-label>
             <input matInput formControlName="apellido" placeholder="Apellido" required>
             <mat-hint align="end">(3 to 2048 characters long)</mat-hint>
-            <mat-error *ngIf="hasError('apellido', 'required')">Title is required</mat-error>
+            <mat-error *ngIf="hasError('apellido', 'required')">Apellido is required</mat-error>
             <mat-error *ngIf="hasError('apellido', 'minlength')">More length is required</mat-error>
             <mat-error *ngIf="hasError('apellido', 'maxlength')">Limit exceed</mat-error>
           </mat-form-field>
         </div>
 
-        <mat-form-field [style.width.px]=350>
+        <mat-form-field [style.width.px]="350">
           <mat-label>Fecha nacimiento:</mat-label>
-          <input matInput [matDatepicker]="picker" formControlName="fecha_nacimiento" placeholder="Fecha nacimiento" required>
+          <input matInput [matDatepicker]="picker" formControlName="fecha_nacimiento" placeholder="Fecha nacimiento" required readonly>
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
           <div *ngIf="hasError('fecha_nacimiento', 'required')" class="text-danger"> Debes establecer una fecha válida
           </div>
-        </mat-form-field>
+        </mat-form-field>        
 
         <div class="form-group">
           <mat-form-field [style.width.px]=350>
             <mat-label>Posicion:</mat-label>
             <input matInput formControlName="posicion" placeholder="Posicion" required>
-            <mat-hint align="end">(3 to 2048 characters long)</mat-hint>
-            <mat-error *ngIf="hasError('posicion', 'required')">Title is required</mat-error>
+            <mat-hint align="end">(2 to 3 characters long)</mat-hint>
+            <mat-error *ngIf="hasError('posicion', 'required')">Posición is required</mat-error>
             <mat-error *ngIf="hasError('posicion', 'minlength')">More length is required</mat-error>
             <mat-error *ngIf="hasError('posicion', 'maxlength')">Limit exceed</mat-error>
           </mat-form-field>
@@ -66,7 +66,7 @@
             <mat-label>Nacionalidad:</mat-label>
             <input matInput formControlName="nacionalidad" placeholder="Nacionalidad" required>
             <mat-hint align="end">(3 to 2048 characters long)</mat-hint>
-            <mat-error *ngIf="hasError('nacionalidad', 'required')">Title is required</mat-error>
+            <mat-error *ngIf="hasError('nacionalidad', 'required')">Nacionalidad is required</mat-error>
             <mat-error *ngIf="hasError('nacionalidad', 'minlength')">More length is required</mat-error>
             <mat-error *ngIf="hasError('nacionalidad', 'maxlength')">Limit exceed</mat-error>
           </mat-form-field>
@@ -79,7 +79,7 @@
               <input matInput formControlName="id" placeholder="equipo" required readonly>
             </mat-form-field><br>
             <button class="btn" type="button" (click)="onShowEquiposSelection()"> <i class="pi pi-search"></i>
-              Find a equipo</button> &nbsp;&nbsp;
+              Buscar equipo</button> &nbsp;&nbsp;
             {{oJugador.equipo.nombre}}
           </div>
         </div>

@@ -35,11 +35,11 @@ export class AdminJugadorPlistRoutedComponent implements OnInit {
     this.bLoading = true;
     this.oJugadorAjaxService.generateRandom(amount).subscribe({
       next: (oResponse: number) => {
-        this.oMatSnackBar.open("Now there are " + oResponse + " jugadores", '', { duration: 2000 });
+        this.oMatSnackBar.open("Ahora hay " + oResponse + " jugadores", '', { duration: 2000 });
         this.bLoading = false;
       },
       error: (oError: HttpErrorResponse) => {
-        this.oMatSnackBar.open("Error generating jugadores: " + oError.message, '', { duration: 2000 });
+        this.oMatSnackBar.open("Error al generar jugadores: " + oError.message, '', { duration: 2000 });
         this.bLoading = false;
       },
     })
@@ -47,24 +47,24 @@ export class AdminJugadorPlistRoutedComponent implements OnInit {
 
   doEmpty($event: Event) {
     this.oConfirmationService.confirm({
-      target: $event.target as EventTarget, 
-      message: 'Are you sure that you want to remove all the jugadores?',
+      target: $event.target as EventTarget,
+      message: 'Está seguro de eliminar todos lo jugadores?',
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
         this.oJugadorAjaxService.empty().subscribe({
           next: (oResponse: number) => {
-            this.oMatSnackBar.open("Now there are " + oResponse + " jugadores", '', { duration: 2000 });
+            this.oMatSnackBar.open("Ahora hay " + oResponse + " jugadores", '', { duration: 2000 });
             this.bLoading = false;
             this.forceReload.next(true);
           },
           error: (oError: HttpErrorResponse) => {
-            this.oMatSnackBar.open("Error emptying jugadores: " + oError.message, '', { duration: 2000 });
+            this.oMatSnackBar.open("Error al vaciar jugadores: " + oError.message, '', { duration: 2000 });
             this.bLoading = false;
           },
         })
       },
       reject: () => {
-        this.oMatSnackBar.open("Empty Cancelled!", '', { duration: 2000 });
+        this.oMatSnackBar.open("Vaciar cancelado!", '', { duration: 2000 });
       }
     });
   }

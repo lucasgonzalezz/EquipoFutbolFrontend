@@ -7,7 +7,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./admin-jugador-edit-routed.component.css']
 })
 export class AdminJugadorEditRoutedComponent implements OnInit {
-  
+
   id: number = 1;
 
   constructor(

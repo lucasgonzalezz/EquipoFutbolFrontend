@@ -12,7 +12,7 @@ import { MiembroCuerpoTecnicoAjaxService } from 'src/app/service/miembroCuerpoTe
 })
 export class AdminMiembroCuerpoTecnicoSelectionUnroutedComponent implements OnInit {
 
-  @Input() id_equipo: number = 0; //filter by user
+  @Input() id_equipo: number = 0;
 
   oPage: IMiembroCuerpoTecnicoPage | undefined;
   orderField: string = "id";

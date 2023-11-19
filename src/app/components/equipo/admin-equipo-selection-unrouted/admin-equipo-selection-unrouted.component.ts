@@ -30,7 +30,7 @@ export class AdminEquipoSelectionUnroutedComponent implements OnInit {
   }
 
   getPage(): void {
-    this.oEquipoAjaxService.getPage(this.oPaginatorState.rows, this.oPaginatorState.page, this.orderField, this.orderDirection).subscribe({    
+    this.oEquipoAjaxService.getPage(this.oPaginatorState.rows, this.oPaginatorState.page, this.orderField, this.orderDirection).subscribe({
       next: (data: IEquipoPage) => {
         this.oPage = data;
         this.oPaginatorState.pageCount = data.totalPages;

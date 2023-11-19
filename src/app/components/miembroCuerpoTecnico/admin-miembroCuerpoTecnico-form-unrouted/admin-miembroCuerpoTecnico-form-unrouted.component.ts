@@ -16,7 +16,7 @@ import { AdminEquipoSelectionUnroutedComponent } from './../../equipo/admin-equi
 export class AdminMiembroCuerpoTecnicoFormUnroutedComponent implements OnInit {
 
   @Input() id: number = 1;
-  @Input() operation: formOperation = 'NEW'; //new or edit
+  @Input() operation: formOperation = 'NEW';
 
   miembroCuerpoTecnicoForm!: FormGroup;
   oMiembroCuerpoTecnico: IMiembroCuerpoTecnico = { equipo: {} } as IMiembroCuerpoTecnico;
@@ -41,8 +41,8 @@ export class AdminMiembroCuerpoTecnicoFormUnroutedComponent implements OnInit {
       nombre: [oMiembroCuerpoTecnico.nombre, [Validators.required, Validators.minLength(3), Validators.maxLength(255)]],
       apellido: [oMiembroCuerpoTecnico.apellido, [Validators.required, Validators.minLength(3), Validators.maxLength(255)]],
       fecha_nacimiento: [fecha_nacimientoValue, [Validators.required]],
-      nacionalidad: [oMiembroCuerpoTecnico.nacionalidad, Validators.maxLength(255)],
-      titulo: [oMiembroCuerpoTecnico.titulo, Validators.maxLength(255)],
+      nacionalidad: [oMiembroCuerpoTecnico.nacionalidad, [Validators.required, Validators.minLength(3), Validators.maxLength(255)]],
+      titulo: [oMiembroCuerpoTecnico.titulo, [Validators.required, Validators.minLength(3), Validators.maxLength(255)]],
       equipo: this.formBuilder.group({
         id: [oMiembroCuerpoTecnico.equipo.id, Validators.required]
       })
@@ -58,7 +58,7 @@ export class AdminMiembroCuerpoTecnicoFormUnroutedComponent implements OnInit {
         },
         error: (error: HttpErrorResponse) => {
           this.status = error;
-          this.oMatSnackBar.open("Error reading Jugador from server.", '', { duration: 2000 });
+          this.oMatSnackBar.open("Error reading miembro del curerpo técnico del servidor.", '', { duration: 2000 });
         }
       })
     } else {
@@ -72,22 +72,20 @@ export class AdminMiembroCuerpoTecnicoFormUnroutedComponent implements OnInit {
 
   onSubmit() {
     if (this.miembroCuerpoTecnicoForm.valid) {
-      // Obtén el valor de ano_fundacion y asegúrate de que solo contenga la fecha
       const fecha_nacimientoValue = this.miembroCuerpoTecnicoForm.get('fecha_nacimiento')?.value;
       const formattedFechaNAciemiento = fecha_nacimientoValue ? new Date(fecha_nacimientoValue).toISOString().split('T')[0] : null;
-      // Actualiza el valor de ano_fundacion en el formulario
       this.miembroCuerpoTecnicoForm.patchValue({ fecha_nacimiento: formattedFechaNAciemiento });
       if (this.operation === 'NEW') {
         this.oMiembroCuerpoTecnicoAjaxService.newOne(this.miembroCuerpoTecnicoForm.value).subscribe({
           next: (data: IMiembroCuerpoTecnico) => {
             this.oMiembroCuerpoTecnico = { "equipo": {} } as IMiembroCuerpoTecnico;
-            this.initializeForm(this.oMiembroCuerpoTecnico); //el id se genera en el servidor
-            this.oMatSnackBar.open('Jugador has been created.', '', { duration: 2000 });
+            this.initializeForm(this.oMiembroCuerpoTecnico);
+            this.oMatSnackBar.open('Miembro del cuerpo técnico creado.', '', { duration: 2000 });
             this.router.navigate(['/admin', 'miembroCuerpoTecnico', 'view', data]);
           },
           error: (error: HttpErrorResponse) => {
             this.status = error;
-            this.oMatSnackBar.open('Failed to create Jugador.', '', { duration: 2000 });
+            this.oMatSnackBar.open('Fallo al crear miembro del cuerpo técnico.', '', { duration: 2000 });
           }
         });
       } else {
@@ -95,12 +93,12 @@ export class AdminMiembroCuerpoTecnicoFormUnroutedComponent implements OnInit {
           next: (data: IMiembroCuerpoTecnico) => {
             this.oMiembroCuerpoTecnico = data;
             this.initializeForm(this.oMiembroCuerpoTecnico);
-            this.oMatSnackBar.open('Jugador has been updated.', '', { duration: 2000 });
+            this.oMatSnackBar.open('Miembro del cuerpo técnico actualizado.', '', { duration: 2000 });
             this.router.navigate(['/admin', 'miembroCuerpoTecnico', 'view', this.oMiembroCuerpoTecnico.id]);
           },
           error: (error: HttpErrorResponse) => {
             this.status = error;
-            this.oMatSnackBar.open('Failed to update Jugador.', '', { duration: 2000 });
+            this.oMatSnackBar.open('Fallo al actualizar miembro del cuerpo técnico', '', { duration: 2000 });
           }
         });
       }

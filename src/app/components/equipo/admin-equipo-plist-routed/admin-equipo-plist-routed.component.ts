@@ -30,11 +30,11 @@ export class AdminEquipoPlistRoutedComponent implements OnInit {
     this.oEquipoAjaxService.generateRandom(amount).subscribe({
       next: (oResponse: number) => {
         console.log(amount);
-        this.oMatSnackBar.open("Now there are " + oResponse + " equipos", '', { duration: 2000 });
+        this.oMatSnackBar.open("Ahora hay " + oResponse + " equipos", '', { duration: 2000 });
         this.bLoading = false;
       },
       error: (oError: HttpErrorResponse) => {
-        this.oMatSnackBar.open("Error generating equipos: " + oError.message, '', { duration: 2000 });
+        this.oMatSnackBar.open("Error al generar equipos: " + oError.message, '', { duration: 2000 });
         this.bLoading = false;
       },
     })
@@ -43,27 +43,26 @@ export class AdminEquipoPlistRoutedComponent implements OnInit {
   doEmpty($event: Event) {
     this.oConfirmationService.confirm({
       target: $event.target as EventTarget,
-      message: 'Are you sure that you want to remove all the users?',
+      message: 'Estás seguro de eliminar todos los equipos?',
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
-        this.bLoading = true; // Set loading to true while processing
+        this.bLoading = true;
         this.oEquipoAjaxService.empty().subscribe({
           next: (oResponse: number) => {
-            this.oMatSnackBar.open("Now there are " + oResponse + " users", '', { duration: 2000 });
+            this.oMatSnackBar.open("Ahora hay " + oResponse + " equipos", '', { duration: 2000 });
             this.bLoading = false; // Set loading to false after successful deletion
             this.forceReload.next(true);
           },
           error: (oError: HttpErrorResponse) => {
-            this.oMatSnackBar.open("Error emptying users: " + oError.message, '', { duration: 2000 });
+            this.oMatSnackBar.open("Error al vaciar equipos: " + oError.message, '', { duration: 2000 });
             this.bLoading = false; // Set loading to false on error
           },
         })
       },
       reject: () => {
-        this.oMatSnackBar.open("Empty Cancelled!", '', { duration: 2000 });
+        this.oMatSnackBar.open("Vaciar cancelado!", '', { duration: 2000 });
       }
     });
   }
-  
 
 }

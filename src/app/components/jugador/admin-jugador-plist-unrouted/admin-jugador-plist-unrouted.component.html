@@ -9,7 +9,8 @@
 <div *ngIf="status==null">
   <div class="d-flex justify-content-between mb-3">
     <h3 *ngIf="id_equipo>0">Filtrado por equipo ({{id_equipo}} - {{oEquipo?.nombre}}) &nbsp;&nbsp;&nbsp;<a type="button"
-        class="btn btn-danger btn-sm" *ngIf="id_equipo>0" [routerLink]="['/admin','jugador','plist']">Restablecer filtro</a></h3>
+        class="btn btn-danger btn-sm" *ngIf="id_equipo>0" [routerLink]="['/admin','jugador','plist']">Restablecer
+        filtro</a></h3>
     <h3 *ngIf="!(id_equipo>0)">Sin filtro activo</h3>
     <h3>Mostrando {{oPage?.numberOfElements}} de {{oPage?.totalElements}} jugadores.</h3>
   </div>
@@ -41,16 +42,17 @@
           <td>{{j.posicion}}</td>
           <td>{{j.nacionalidad}}</td>
           <td>
-            <a [routerLink]="['/admin','jugador','plist','byequipo',j.equipo.id]">({{j.equipo.id}}) {{j.equipo.nombre}}</a>
+            <a [routerLink]="['/admin','jugador','plist','byequipo',j.equipo.id]">({{j.equipo.id}})
+              {{j.equipo.nombre}}</a>
           </td>
           <td class="text-center">
             <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-              <button class="btn btn-custom-view" [routerLink]="['/admin','jugador','view',j.id]"><i class="pi pi-eye"></i></button>
+              <button class="btn btn-custom-view" [routerLink]="['/admin','jugador','view',j.id]"><i
+                  class="pi pi-eye"></i></button>
               <button class="btn btn-custom-view2" (click)="doView(j)"><i class="pi pi-arrow-circle-up"></i></button>
               <button class="btn btn-custom-warning" [routerLink]="['/admin','jugador','edit',j.id]"><i
                   class="pi pi-pencil"></i></button>
-              <button class="btn btn-custom-danger" (click)="doRemove(j)"><i
-                  class="pi pi-trash"></i></button>
+              <button class="btn btn-custom-danger" (click)="doRemove(j)"><i class="pi pi-trash"></i></button>
             </div>
           </td>
         </tr>

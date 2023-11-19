@@ -19,4 +19,3 @@ export class AdminMiembroCuerpoTecnicoEditRoutedComponent implements OnInit {
   ngOnInit() {
   }
 }
-

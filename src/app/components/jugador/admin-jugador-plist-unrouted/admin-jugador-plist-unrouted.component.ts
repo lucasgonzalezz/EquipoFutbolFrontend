@@ -19,10 +19,10 @@ import { AdminJugadorDetailUnroutedComponent } from './../admin-jugador-detail-u
 export class AdminJugadorPlistUnroutedComponent implements OnInit {
 
   @Input() forceReload: Subject<boolean> = new Subject<boolean>();
-  @Input() id_equipo: number = 0; //filter by user
+  @Input() id_equipo: number = 0;
 
   oPage: IJugadorPage | undefined;
-  oEquipo: IEquipo | null = null; // data of user if id_user is set for filter
+  oEquipo: IEquipo | null = null;
   orderField: string = "id";
   orderDirection: string = "asc";
   oPaginatorState: PaginatorState = { first: 0, rows: 10, page: 0, pageCount: 0 };
@@ -85,7 +85,7 @@ export class AdminJugadorPlistUnroutedComponent implements OnInit {
       data: {
         id: u.id
       },
-      header: 'Vita de jugaor',
+      header: 'Vita de jugador',
       width: '50%',
       contentStyle: { overflow: 'auto' },
       baseZIndex: 10000,
@@ -109,7 +109,7 @@ export class AdminJugadorPlistUnroutedComponent implements OnInit {
         });
       },
       reject: (type: ConfirmEventType) => {
-        this.oMatSnackBar.open("The jugador hasn't been removed.", "", { duration: 2000 });
+        this.oMatSnackBar.open("El jugador no ha sido eliminado.", "", { duration: 2000 });
       }
     });
   }

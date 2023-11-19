@@ -41,8 +41,8 @@ export class AdminJugadorFormUnroutedComponent implements OnInit {
       nombre: [oJugador.nombre, [Validators.required, Validators.minLength(3), Validators.maxLength(255)]],
       apellido: [oJugador.apellido, [Validators.required, Validators.minLength(3), Validators.maxLength(255)]],
       fecha_nacimiento: [fecha_nacimientoValue, [Validators.required]],
-      posicion: [oJugador.posicion, Validators.maxLength(255)],
-      nacionalidad: [oJugador.nacionalidad, Validators.maxLength(255)],
+      posicion: [oJugador.posicion, [Validators.required, Validators.minLength(2), Validators.maxLength(3)]],
+      nacionalidad: [oJugador.nacionalidad, [Validators.required, Validators.minLength(3), Validators.maxLength(255)]],
       equipo: this.formBuilder.group({
         id: [oJugador.equipo.id, Validators.required]
       })
@@ -58,7 +58,7 @@ export class AdminJugadorFormUnroutedComponent implements OnInit {
         },
         error: (error: HttpErrorResponse) => {
           this.status = error;
-          this.oMatSnackBar.open("Error reading Jugador from server.", '', { duration: 2000 });
+          this.oMatSnackBar.open("Error al leer jugador en el servidor.", '', { duration: 2000 });
         }
       })
     } else {
@@ -72,22 +72,20 @@ export class AdminJugadorFormUnroutedComponent implements OnInit {
 
   onSubmit() {
     if (this.jugadorForm.valid) {
-      // Obtén el valor de ano_fundacion y asegúrate de que solo contenga la fecha
       const fecha_nacimientoValue = this.jugadorForm.get('fecha_nacimiento')?.value;
       const formattedFechaNAciemiento = fecha_nacimientoValue ? new Date(fecha_nacimientoValue).toISOString().split('T')[0] : null;
-      // Actualiza el valor de ano_fundacion en el formulario
       this.jugadorForm.patchValue({ fecha_nacimiento: formattedFechaNAciemiento });
       if (this.operation === 'NEW') {
         this.oJugadorAjaxService.newOne(this.jugadorForm.value).subscribe({
           next: (data: IJugador) => {
             this.oJugador = { "equipo": {} } as IJugador;
             this.initializeForm(this.oJugador); //el id se genera en el servidor
-            this.oMatSnackBar.open('Jugador has been created.', '', { duration: 2000 });
+            this.oMatSnackBar.open('Jugador creado.', '', { duration: 2000 });
             this.router.navigate(['/admin', 'jugador', 'view', data]);
           },
           error: (error: HttpErrorResponse) => {
             this.status = error;
-            this.oMatSnackBar.open('Failed to create Jugador.', '', { duration: 2000 });
+            this.oMatSnackBar.open('Error crear jugador.', '', { duration: 2000 });
           }
         });
       } else {
@@ -95,12 +93,12 @@ export class AdminJugadorFormUnroutedComponent implements OnInit {
           next: (data: IJugador) => {
             this.oJugador = data;
             this.initializeForm(this.oJugador);
-            this.oMatSnackBar.open('Jugador has been updated.', '', { duration: 2000 });
+            this.oMatSnackBar.open('Jugador actualizado.', '', { duration: 2000 });
             this.router.navigate(['/admin', 'jugador', 'view', this.oJugador.id]);
           },
           error: (error: HttpErrorResponse) => {
             this.status = error;
-            this.oMatSnackBar.open('Failed to update Jugador.', '', { duration: 2000 });
+            this.oMatSnackBar.open('Error al actualizar jugador.', '', { duration: 2000 });
           }
         });
       }

@@ -8,6 +8,7 @@ import { AdminEquipoDetailUnroutedComponent } from '../admin-equipo-detail-unrou
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { EquipoAjaxService } from 'src/app/service/equipo.ajax.service';
 import { Subject } from 'rxjs';
+
 @Component({
   selector: 'app-admin-equipo-plist-unrouted',
   templateUrl: './admin-equipo-plist-unrouted.component.html',

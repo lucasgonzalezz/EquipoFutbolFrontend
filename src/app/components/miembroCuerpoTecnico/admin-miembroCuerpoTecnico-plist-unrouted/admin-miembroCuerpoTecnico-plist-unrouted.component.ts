@@ -19,10 +19,10 @@ import { AdminMiembroCuerpoTecnicoDetailUnroutedComponent } from './../admin-mie
 export class AdminMiembroCuerpoTecnicoPlistUnroutedComponent implements OnInit {
 
   @Input() forceReload: Subject<boolean> = new Subject<boolean>();
-  @Input() id_equipo: number = 0; //filter by user
+  @Input() id_equipo: number = 0;
 
   oPage: IMiembroCuerpoTecnicoPage | undefined;
-  oEquipo: IEquipo | null = null; // data of user if id_user is set for filter
+  oEquipo: IEquipo | null = null;
   orderField: string = "id";
   orderDirection: string = "asc";
   oPaginatorState: PaginatorState = { first: 0, rows: 10, page: 0, pageCount: 0 };
@@ -97,19 +97,19 @@ export class AdminMiembroCuerpoTecnicoPlistUnroutedComponent implements OnInit {
     this.oMiembroCuerpoTecnicoToRemove = u;
     this.oCconfirmationService.confirm({
       accept: () => {
-        this.oMatSnackBar.open("The jugador has been removed.", '', { duration: 2000 });
+        this.oMatSnackBar.open("Eliminado miembro del cuerpo técnico", '', { duration: 2000 });
         this.oMiembroCuerpoTecnicoAjaxService.removeOne(this.oMiembroCuerpoTecnicoToRemove?.id).subscribe({
           next: () => {
             this.getPage();
           },
           error: (error: HttpErrorResponse) => {
             this.status = error;
-            this.oMatSnackBar.open("The juagdor hasn't been removed.", "", { duration: 2000 });
+            this.oMatSnackBar.open("No ha sido eliminado el miembros del cuerpo técnico", "", { duration: 2000 });
           }
         });
       },
       reject: (type: ConfirmEventType) => {
-        this.oMatSnackBar.open("The jugador hasn't been removed.", "", { duration: 2000 });
+        this.oMatSnackBar.open("No ha sido eliminado el miembros del cuerpo técnico", "", { duration: 2000 });
       }
     });
   }
