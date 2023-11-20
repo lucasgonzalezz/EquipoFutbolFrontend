@@ -1,3 +1,82 @@
-<p>
-  user-jugador-plist-unrouted works!
-</p>
+<div *ngIf="status!=null">
+  <div class="d-flex justify-content-center my-3">
+    <div class="alert alert-danger" role="alert">
+      {{status!.error.message}} - {{status!.message}}
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div class="row">
+    <!-- Columna de la izquierda (Paginación y Lista de jugadores) -->
+    <div class="col-md-6">
+      <div class="d-flex flex-column justify-content-start">
+        <div class="flex justify-content-center m-1">
+          <div *ngIf="status==null">
+            <div class="d-flex justify-content-between">
+              <h5 class="px-2">Mostrando {{oPage?.numberOfElements}} de {{oPage?.totalElements}} jugadores</h5>
+            </div>
+            <p-paginator (onPageChange)="onPageChange($event)" [first]="oPaginatorState.first!" [rows]="oPaginatorState.rows!"
+              [totalRecords]="oPage?.totalElements || 0" [rowsPerPageOptions]="[10, 20, 30]" [showPageLinks]="false"></p-paginator>
+          </div>
+        </div>
+
+        <div class="d-flex">
+          <ul class="list-group w-100"> <!-- Hacer el list-group más ancho -->
+            <!-- Lista de jugadores -->
+            <li class="list-group-item d-flex justify-content-between align-items-start" *ngFor="let j of oPage?.content"
+              (click)="doShowEquipo(j)" [ngClass]="{active: j.id==activeJugador?.id}">
+              <div class="ms-2 me-auto">
+                <p>{{j.nombre}}</p>
+              </div>
+              <div class="ms-1">
+                  <span 
+                    *ngIf="j.equipo.username==oSessionService.getUsername()">{{j.equipo.username}}</span>
+                  <span class="badge rounded-pill"
+                    *ngIf="j.equipo.username!=oSessionService.getUsername()">{{j.equipo.username}}</span> &nbsp;
+                  <span class="badge rounded-pill">{{j.equipo.nombre}}</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- Columna de la derecha (Información del jugador seleccionado) -->
+    <div class="col-md-6">
+      <div *ngIf="activeJugador !== null">
+        <!-- Card para la Información del Jugador Seleccionado -->
+        <br><br><br><br><br>
+        <div class="card mb-3">
+          <div class="card-header">
+            <h4>Información del Jugador Seleccionado:</h4>
+          </div>
+          <div class="card-body">
+            <ul>
+              <li><strong>Nombre del jugador:</strong> {{activeJugador.nombre}}</li>
+              <li><strong>Apellido:</strong> {{activeJugador.apellido}}</li>
+              <li><strong>Nacionalidad:</strong> {{activeJugador.nacionalidad}}</li>
+              <li><strong>Posición:</strong> {{activeJugador.posicion}}</li>
+              <li><strong>Fecha nacimiento:</strong> {{activeJugador.fecha_nacimiento}}</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Card para la Información del Equipo del Jugador Seleccionado -->
+        <div class="card">
+          <div class="card-header">
+            <h4>Información del Equipo:</h4>
+          </div>
+          <div class="card-body">
+            <ul>
+              <li><strong>Nombre del Equipo:</strong> {{activeJugador.equipo.nombre}}</li>
+              <li><strong>Ciudad:</strong> {{activeJugador.equipo.ciudad}}</li>
+              <li><strong>Estadio:</strong> {{activeJugador.equipo.estadio}}</li>
+              <li><strong>Liga:</strong> {{activeJugador.equipo.liga}}</li>
+              <li><strong>Año de fundación:</strong> {{activeJugador.equipo.ano_fundacion}}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

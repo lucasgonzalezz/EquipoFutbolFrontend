@@ -45,6 +45,7 @@ import { AdminEquipoPlistRoutedComponent } from './components/equipo/admin-equip
 import { AdminEquipoFormUnroutedComponent } from './components/equipo/admin-equipo-form-unrouted/admin-equipo-form-unrouted.component';
 import { AdminEquipoPlistUnroutedComponent } from './components/equipo/admin-equipo-plist-unrouted/admin-equipo-plist-unrouted.component';
 import { AdminEquipoDetailUnroutedComponent } from './components/equipo/admin-equipo-detail-unrouted/admin-equipo-detail-unrouted.component';
+import { UserEquipoFeaturedUnroutedComponent } from './components/equipo/user-equipo-featured-unrouted/user-equipo-featured-unrouted.component';
 import { AdminEquipoSelectionUnroutedComponent } from './components/equipo/admin-equipo-selection-unrouted/admin-equipo-selection-unrouted.component';
 //-Jugador-
 import { AdminJugadorNewRoutedComponent } from './components/jugador/admin-jugador-new-routed/admin-jugador-new-routed.component';
@@ -95,6 +96,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     AdminEquipoFormUnroutedComponent,
     AdminEquipoPlistUnroutedComponent,
     AdminEquipoDetailUnroutedComponent,
+    UserEquipoFeaturedUnroutedComponent,
     AdminEquipoSelectionUnroutedComponent,
     //-Jugador-
     AdminJugadorNewRoutedComponent,

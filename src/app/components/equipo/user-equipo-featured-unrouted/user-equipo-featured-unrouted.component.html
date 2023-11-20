@@ -1,0 +1,18 @@
+<div *ngIf="status!=null">
+  <div class="d-flex justify-content-center my-3">
+    <div class="alert alert-danger" role="alert">
+      {{status!.error.message}} - {{status!.message}}
+    </div>
+  </div>
+</div>
+
+<div *ngIf="status==null">
+  <div class=" d-flex">
+    <ol>
+      <li *ngFor="let e of oPage?.content">
+        <strong>{{e.nombre}}</strong>: {{e.jugadores}} jugadores
+      </li>
+    </ol>
+  </div>
+</div>
+

@@ -51,4 +51,10 @@ export class EquipoAjaxService {
         return this.oHttpClient.delete<number>(this.sUrl + "/empty");
     }
 
+    getPageByJugadoresNumberDesc(size: number | undefined, page: number | undefined): Observable<IEquipoPage> {
+        if (!size) size = 10;
+        if (!page) page = 0;
+        return this.oHttpClient.get<IEquipoPage>(this.sUrl + "/byJugadoresNumberDesc?size=" + size + "&page=" + page);
+    }
+
 }

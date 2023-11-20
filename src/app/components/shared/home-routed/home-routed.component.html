@@ -1,10 +1,28 @@
 <div class="container-fluid px-5">
 
-    <div class="row align-items-start">
-      <div class="col-xxl-12 text-center p-3 mt-2">
-        <h1 class="title">EQUIPO FUTBOL</h1> <br>
-        <h2 class="subtitle">"Fútbol es fútbol"</h2>
-      </div>
+  <div class="row align-items-start">
+    <div class="col-xxl-12 text-center p-3 mt-2">
+      <h1 class="title">EQUIPO FUTBOL</h1> <br>
+      <h2 class="subtitle">"Fútbol es fútbol"</h2>
+    </div>
+  </div>
+  <br>
+  <div class="row align-items-start">
+    <!-- Primera columna para app-user-jugador-plist-unrouted (ocupa dos columnas, pero la primera más ancha) -->
+    <div class="col-xxl-8 col-xl-8 col-lg-8 col-md-12 col-sm-12">
+      <app-user-jugador-plist-unrouted (jugador_selection)="onJugadorChange($event)" [reload]="reloadJugadores"></app-user-jugador-plist-unrouted>
     </div>
 
+    <!-- Segunda columna para app-user-equipo-featured-unrouted (más estrecha) -->
+    <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-12 col-sm-12">
+      <div class="card">
+        <div class="card-header">
+          Equipos destacados
+        </div>
+        <div class="card-body">
+          <app-user-equipo-featured-unrouted></app-user-equipo-featured-unrouted>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
