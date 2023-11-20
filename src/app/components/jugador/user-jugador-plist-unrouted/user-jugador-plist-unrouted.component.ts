@@ -10,8 +10,10 @@ import { JugadorAjaxService } from 'src/app/service/jugador.ajax.service';
 import { EquipoAjaxService } from 'src/app/service/equipo.ajax.service';
 import { SessionAjaxService } from 'src/app/service/session.ajax.service';
 import { Subject } from 'rxjs';
+import { AdminJugadorFormUnroutedComponent } from './../admin-jugador-form-unrouted/admin-jugador-form-unrouted.component';
 
 @Component({
+  providers: [ConfirmationService],
   selector: 'app-user-jugador-plist-unrouted',
   templateUrl: './user-jugador-plist-unrouted.component.html',
   styleUrls: ['./user-jugador-plist-unrouted.component.css']
@@ -24,6 +26,8 @@ export class UserJugadorPlistUnroutedComponent implements OnInit {
 
   activeOrder: boolean = true;
   activeJugador: IJugador | null = null;
+  oSessionEquipo: IEquipo | null = null;
+  strEquipoName: string = "";
 
   oPage: IJugadorPage | undefined;
   oEquipo: IEquipo | null = null;
@@ -38,7 +42,21 @@ export class UserJugadorPlistUnroutedComponent implements OnInit {
     private oEquipoAjaxService: EquipoAjaxService,
     public oSessionService: SessionAjaxService,
     private oJugadorAjaxService: JugadorAjaxService,
-  ) { }
+    public oDialogService: DialogService,
+  ) { 
+    
+
+    this.strEquipoName = oSessionService.getUsername();
+    this.oEquipoAjaxService.getByUsername(this.oSessionService.getUsername()).subscribe({
+      next: (oEquipo: IEquipo) => {
+        this.oSessionEquipo = oEquipo;
+      },
+      error: (error: HttpErrorResponse) => {
+        console.log(error);
+      }
+    });
+  }
+
 
   ngOnInit() {
     this.reload.subscribe(response => {
@@ -114,20 +132,18 @@ export class UserJugadorPlistUnroutedComponent implements OnInit {
     }
   }
 
-  /*
-  getPageByRepliesNumberDesc(): void {
-    this.oJugadorAjaxService.getPageByRepliesNumberDesc(this.oPaginatorState.rows, this.oPaginatorState.page, 0).subscribe({
-      next: (data: IThreadPage) => {
-        this.oPage = data;
-        this.oPaginatorState.pageCount = data.totalPages;
-        this.activeThread = this.oPage.content[0];
-        this.thread_selection.emit(this.activeThread);
+  deleteJugador(jugadorId: number): void {
+    this.oJugadorAjaxService.removeOne(jugadorId).subscribe({
+      next: () => {
+        // Deletion successful, reset the activeJugador and reload the page
+        this.activeJugador = null;
+        this.reload.next(true);
       },
       error: (error: HttpErrorResponse) => {
-        this.status = error;
+        // Handle error, display a message or log it
+        console.error(error);
       }
-    })
+    });
   }
-  */
-
+  
 }

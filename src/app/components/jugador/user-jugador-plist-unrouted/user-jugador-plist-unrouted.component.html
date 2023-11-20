@@ -61,7 +61,9 @@
           </div>
         </div>
 
-        <!-- Card para la Información del Equipo del Jugador Seleccionado -->
+        <button type="button" class="btn" (click)="deleteJugador(activeJugador.id)"
+        *ngIf="oSessionService.isSessionActive() && oSessionEquipo?.role==false">Eliminar jugador</button>
+
         <div class="card">
           <div class="card-header">
             <h4>Información del Equipo:</h4>

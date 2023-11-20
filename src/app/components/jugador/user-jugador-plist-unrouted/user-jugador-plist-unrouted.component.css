@@ -106,3 +106,12 @@ h5 {
     border-color: rgb(0, 0, 0);
     color: black;
 }
+
+.btn {
+    font-family: 'Comfortaa', sans-serif;
+    box-shadow: 0 4px 8px rgba(197, 92, 129, 0.836);
+  }
+
+.btn:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.836);
+}
