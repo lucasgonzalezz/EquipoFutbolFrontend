@@ -1,26 +1,23 @@
 /* Estilos comunes para ambos div */
 .common-style {
     font-family: 'Comfortaa', sans-serif;
-    margin: 10px; /* Add margin to both div elements */
+    margin: 10px;
 }
 
 .alert-danger {
     background-color: rgba(197, 92, 129, 0.836);
     color: #fff;
     border-color: rgb(0, 0, 0);
-    padding: 15px; /* Increase padding for more separation */
-    margin-bottom: 15px; /* Add margin at the bottom for additional separation */
+    padding: 15px;
+    margin-bottom: 15px;
 }
 
 .d-flex {
     font-family: 'Comfortaa', sans-serif;
-    margin: 15px 0; /* Add margin to the d-flex container */
+    margin: 15px 0;
 }
 
-/* Add margin between list items */
 ol li {
-    margin-bottom: 15px; /* Adjust margin between list items */
+    margin-bottom: 15px;
     font-size: 15px;	
 }
-
-/* Other existing styles remain unchanged */

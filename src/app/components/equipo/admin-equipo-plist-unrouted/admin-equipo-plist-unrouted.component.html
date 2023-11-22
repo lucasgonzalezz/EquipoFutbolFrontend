@@ -47,12 +47,11 @@
             <span *ngIf="e.role==false">Admin</span>
           </td>
           <td class="text-center">
-            <a [routerLink]="['/admin','jugador','plist','byuser',e.id]" *ngIf="e.jugadores>0">{{e.jugadores}}</a>
+            <span>{{e.jugadores}}</span>
             <span *ngIf="e.jugadores==0">0</span>
           </td>
           <td class="text-center">
-            <a [routerLink]="['/admin','miembroCuerpoTecnico','plist','byuser',e.id]"
-              *ngIf="e.miembrosCuerpoTecnico>0">{{e.miembrosCuerpoTecnico}}</a>
+            <span>{{e.miembrosCuerpoTecnico}}</span>
             <span *ngIf="e.miembrosCuerpoTecnico==0">0</span>
           </td>
           <td class="text-center">

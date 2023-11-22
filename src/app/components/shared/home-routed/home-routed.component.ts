@@ -20,5 +20,5 @@ export class HomeRoutedComponent implements OnInit {
   onJugadorChange(oJugador: IJugador) {
     this.idJugador = oJugador.id;
   }
-
+  
 }

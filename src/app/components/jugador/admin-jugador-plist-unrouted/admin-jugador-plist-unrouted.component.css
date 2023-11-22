@@ -1,109 +1,96 @@
 /* Estilos para el mensaje de error */
 .alert-danger {
     font-family: 'Comfortaa', sans-serif;
-    background-color: rgb(197, 92, 129); /* Rosa */
-    color: #fff; /* Texto blanco */
-    border-color: rgb(0, 0, 0); /* Color del borde */
+    background-color: rgb(197, 92, 129);
+    color: #fff;
+    border-color: rgb(0, 0, 0);
     text-align: center;
 }
 
-/* Estilos para el mensaje "Filtrado por equipo" */
 h3 {
     font-family: 'Comfortaa', sans-serif;
-    color: rgb(197, 92, 129); /* Rosa */
-    font-weight: bold; /* Peso de la fuente */
+    color: rgb(197, 92, 129);
+    font-weight: bold;
 }
 
-/* Estilos para el mensaje "Sin filtro activo" */
 h3:last-child {
     font-family: 'Comfortaa', sans-serif;
-    color: rgb(197, 92, 129); /* Rosa */
-    font-weight: bold; /* Peso de la fuente */
+    color: rgb(197, 92, 129);
+    font-weight: bold;
 }
 
-/* Estilos para el mensaje "Mostrando X de total Y jugadores." */
 h3 {
     font-family: 'Comfortaa', sans-serif;
-    color: rgb(197, 92, 129); /* Rosa */
-    font-weight: bold; /* Peso de la fuente */
+    color: rgb(197, 92, 129);
+    font-weight: bold;
 }
 
-/* Estilos para la paginación */
 .p-paginator {
     font-family: 'Comfortaa', sans-serif;
-    background-color: rgb(197, 92, 129); /* Rosa */
-    color: #fff; /* Texto blanco */
-    border-color: rgb(0, 0, 0); /* Color del borde */
+    background-color: rgb(197, 92, 129);
+    color: #fff;
+    border-color: rgb(0, 0, 0);
 }
 
-/* Estilo para la tabla */
 .table {
     font-family: 'Comfortaa', sans-serif;
-    box-shadow: 0 2px 10px rgb(197, 92, 129); /* Agrega sombra a la tabla */
+    box-shadow: 0 2px 10px rgb(197, 92, 129);
     border-collapse: collapse;
     width: 100%;
 }
 
-/* Estilo para las celdas del encabezado */
 .table th {
     text-align: center;
     vertical-align: middle;
-    color: rgb(197, 92, 129); /* Texto blanco */
+    color: rgb(197, 92, 129);
 }
 
-/* Estilo para las celdas del cuerpo de la tabla */
 .table td {
     text-align: center;
     vertical-align: middle;
 }
 
-/* Estilo para las filas impares (opcional) */
 .table tbody tr:nth-child(odd) {
     background-color: #f2f2f2;
 }
 
-/* Estilo para las filas cuando el ratón pasa por encima */
 .table tbody tr:hover {
-    background-color: rgb(197, 92, 129); /* Rosa */
-    color: #fff; /* Texto blanco */
+    background-color: rgb(197, 92, 129);
+    color: #fff;
 }
 
-/* Estilos personalizados para el botón "Ver" */
 .btn-custom-view {
-    background-color: rgb(197, 92, 129); /* Rosa */
-    color: #fff; /* Texto blanco */
-    border-color: rgb(0, 0, 0); /* Color del borde */
+    background-color: rgb(197, 92, 129);
+    color: #fff;
+    border-color: rgb(0, 0, 0);
 }
 
-/* Estilos personalizados para el botón "Editar" */
 .btn-custom-view2 {
-    background-color: rgb(197, 92, 129); /* Rosa */
-    color: #fff; /* Texto blanco */
-    border-color: rgb(0, 0, 0); /* Color del borde */
+    background-color: rgb(197, 92, 129);
+    color: #fff;
+    border-color: rgb(0, 0, 0);
 }
 
 .btn-custom-danger {
-    background-color: rgba(238, 28, 28, 0.885); /* Azul */
-    color: #fff; /* Texto blanco */
-    border-color: rgb(0, 0, 0); /* Color del borde */
+    background-color: rgba(238, 28, 28, 0.885);
+    color: #fff;
+    border-color: rgb(0, 0, 0);
 }
 
 .btn-custom-warning {
-    background-color: rgb(76, 142, 212); /* Azul */
-    color: #fff; /* Texto blanco */
-    border-color: rgb(0, 0, 0); /* Color del borde */
+    background-color: rgb(76, 142, 212);
+    color: #fff;
+    border-color: rgb(0, 0, 0);
 }
 
-/* Estilos para los botones cuando se pasa el ratón por encima */
 .btn-custom-view:hover,
 .btn-custom-warning:hover,
 .btn-custom-view2:hover,
 .btn-custom-danger:hover {
-    background-color: rgb(197, 92, 129); /* Rosa */
-    color: rgb(0, 0, 0); /* Texto rosa */
+    background-color: rgb(197, 92, 129);
+    color: rgb(0, 0, 0);
 }
 
-/* Estilos para la ventana emergente de confirmación */
 .p-confirmDialog {
-    background-color: rgba(197, 92, 129, 0.8); /* Fondo rosa semi-transparente */
+    background-color: rgba(197, 92, 129, 0.8);
 }

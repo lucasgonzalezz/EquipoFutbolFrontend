@@ -50,12 +50,12 @@ export class AdminEquipoPlistRoutedComponent implements OnInit {
         this.oEquipoAjaxService.empty().subscribe({
           next: (oResponse: number) => {
             this.oMatSnackBar.open("Ahora hay " + oResponse + " equipos", '', { duration: 2000 });
-            this.bLoading = false; // Set loading to false after successful deletion
+            this.bLoading = false;
             this.forceReload.next(true);
           },
           error: (oError: HttpErrorResponse) => {
             this.oMatSnackBar.open("Error al vaciar equipos: " + oError.message, '', { duration: 2000 });
-            this.bLoading = false; // Set loading to false on error
+            this.bLoading = false;
           },
         })
       },
