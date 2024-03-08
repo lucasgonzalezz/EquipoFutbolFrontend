@@ -1,27 +1,17 @@
-# Equipofutbolcli
+# EquipoFutbolFrontend - Aplicación Frontend con Angular
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.6.
 
-## Development server
+Este repositorio contiene el código fuente de la aplicación frontend desarrollada con Angular para gestionar información sobre equipos de fútbol. La interfaz utiliza Bootstrap, Angular Material y PrimeNG para un diseño atractivo y funcional. A continuación, se proporciona una descripción general del proyecto:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Descripción
+La aplicación EquipoFutbolFrontend es un cliente frontend desarrollado con Angular que se conecta al backend correspondiente para realizar operaciones CRUD sobre equipos de fútbol. Utiliza Angular Material para componentes de diseño y PrimeNG para una experiencia de usuario mejorada.
 
-## Code scaffolding
+## Características Principales
+Diseño Responsivo: Utiliza Bootstrap para un diseño frontend adaptable y amigable.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Angular Material: Incorpora componentes y estilos de Angular Material para una interfaz de usuario moderna.
 
-## Build
+PrimeNG: Integra componentes PrimeNG para funcionalidades avanzadas y mejoras de usuario.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Conexión con Backend: Se conecta al backend EquipoFutbolBackend para realizar operaciones CRUD.
